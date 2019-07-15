@@ -23,17 +23,60 @@ function putBlackStone(obj) {
 
 function reverseStone(obj) {
   for (let xi = 1; xi <= maxWidth; xi++) {
-    let xcoord = 'x'+xi;
-    if(obj.classList.contains(xcoord) == true) {
+    if(obj.classList.contains('x'+xi) == true) {
+      var xcoord = 'x'+xi;
       console.log(xcoord);
+      //xiのiの数字部分を取り出して数値に変換
+      var num = xcoord.match(/[0-9]+/);
+      var xnum = parseInt(num, 10);
+      var xplus1 = xnum + 1;
+      var xplus1Coord = 'x' + xplus1;
+      var xplus2 = xnum + 2;
+      //console.log('x'+xplus1);
+      //console.log(num);
+      //console.log(xnum);
     }
   }
   for (let yi = 1; yi <= maxHeight; yi++) {
-    let ycoord = 'y'+yi;
+    var ycoord = 'y'+yi;
     if(obj.classList.contains(ycoord) == true) {
-      console.log(ycoord);
+      //console.log(ycoord);
+      //yiのiの数字部分を取り出して数値に変換
+      var num = ycoord.match(/[0-9]+/);
+      var ynum = parseInt(num, 10);
+      //console.log(num);
+      //console.log(ynum);
+      //yiをもちblack-stoneもつ要素を配列で取得
       let result = document.getElementsByClassName('black-stone '+ycoord);
+      //console.log(result);
+      result = Array.from(result);
       console.log(result);
+      result.forEach((yresult) => {
+        console.log(yresult);
+        console.log(xcoord);
+        if(yresult.classList.contains(xcoord) == true) {
+          console.log(yresult.classList);
+          console.log('self');
+        }else {
+          yresult.classList.forEach((nearYClassItem) => {
+            console.log(nearYClassItem);
+            if (nearYClassItem.includes('x'+ xplus1)) {
+              console.log('successx+1');
+            }else if (nearYClassItem.includes('x'+ xplus2)) {
+              console.log('successx+2');
+              var reverseObject;
+              reverseObject = document.getElementsByClassName('white-stone '+xplus1Coord);
+              reverseObject = Array.from(reverseObject);
+              console.log(reverseObject);
+              reverseObject.forEach((obj) => {
+                console.log(obj.classList);
+                obj.classList.remove('white-stone');
+                obj.classList.add('black-stone');
+              });
+            }
+          });
+        }
+      });
 
     }
   }
@@ -41,7 +84,7 @@ function reverseStone(obj) {
 
 
 window.onload = function() {
-  alert('11');
+  //alert('11');
     // 
     // for (let width_i = 0; width_i < maxHeight; width_i++) {
       
