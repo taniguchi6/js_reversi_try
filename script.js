@@ -8,7 +8,7 @@ for (let i = 0; i < rectangleObject.length; i++) {
   rectangleObject[i].addEventListener('click', () => {
     //rectangleObject[i].classList.add('black-stone');
     putBlackStone(rectangleObject[i]);
-    reverseStone(rectangleObject[i]);
+    
   }, false);
 }
 function putBlackStone(obj) {
@@ -18,9 +18,24 @@ function putBlackStone(obj) {
     alert('そこにすでに黒石があります');
   }else {
     obj.classList.add('black-stone');
+    reverseStone(obj);
   }
 }
+var xplus1Coord;
+var xplus2Coord;
+var xplus3Coord;
+var xplus4Coord;
+var xplus5Coord;
+var xplus6Coord;
+var xplus7Coord;
 
+var xminus1Coord;
+var xminus2Coord;
+var xminus3Coord;
+var xminus4Coord;
+var xminus5Coord;
+var xminus6Coord;
+var xminus7Coord;
 function reverseStone(obj) {
   for (let xi = 1; xi <= maxWidth; xi++) {
     if(obj.classList.contains('x'+xi) == true) {
@@ -29,12 +44,27 @@ function reverseStone(obj) {
       //xiのiの数字部分を取り出して数値に変換
       var num = xcoord.match(/[0-9]+/);
       var xnum = parseInt(num, 10);
-      var xplus1 = xnum + 1;
-      var xplus1Coord = 'x' + xplus1;
-      var xplus2 = xnum + 2;
+      console.log(xnum);
+      for (plus_i = 1; plus_i <= 7; plus_i++) {
+        let sum = xnum + plus_i;
+        //console.log(sum);
+        eval("xplus" + plus_i + "=" + sum + ";");
+        eval("xplus" + plus_i + "Coord = 'x' + xplus" + plus_i + ";");
+        console.log(eval("xplus" + plus_i + "Coord"));
+      }
+      for (minus_i = 1; minus_i <= 7; minus_i++) {
+        let sum = xnum - minus_i;
+        //console.log(sum);
+        eval("xminus" + minus_i + "=" + sum + ";");
+        eval("xminus" + minus_i + "Coord = 'x' + xminus" + minus_i + ";");
+        console.log(eval("xminus" + minus_i + "Coord"));
+      }
+      
+      //var xplus2 = xnum + 2;
       //console.log('x'+xplus1);
       //console.log(num);
       //console.log(xnum);
+      console.log(xplus3Coord);
     }
   }
   for (let yi = 1; yi <= maxHeight; yi++) {
@@ -62,17 +92,65 @@ function reverseStone(obj) {
             console.log(nearYClassItem);
             if (nearYClassItem.includes('x'+ xplus1)) {
               console.log('successx+1');
-            }else if (nearYClassItem.includes('x'+ xplus2)) {
+            }else if (nearYClassItem.includes(xplus2Coord)) {
               console.log('successx+2');
-              var reverseObject;
-              reverseObject = document.getElementsByClassName('white-stone '+xplus1Coord);
-              reverseObject = Array.from(reverseObject);
-              console.log(reverseObject);
-              reverseObject.forEach((obj) => {
-                console.log(obj.classList);
-                obj.classList.remove('white-stone');
-                obj.classList.add('black-stone');
-              });
+              // var reverseObject;
+              // reverseObject = document.getElementsByClassName('white-stone '+xplus1Coord);
+              // reverseObject = Array.from(reverseObject);
+              // console.log(reverseObject);
+              // reverseObject.forEach((obj) => {
+              //   console.log(obj.classList);
+              //   obj.classList.remove('white-stone');
+              //   obj.classList.add('black-stone');
+              // });
+              forRightReverse(2);
+            }else if (nearYClassItem.includes('x'+ xplus3)) {
+              console.log('successx+3');
+              forRightReverse(3);
+            }else if (nearYClassItem.includes('x'+ xplus4)) {
+              console.log('successx+4');
+              forRightReverse(4);
+            }else if (nearYClassItem.includes('x'+ xplus5)) {
+              console.log('successx+5');
+              forRightReverse(5);
+            }else if (nearYClassItem.includes('x'+ xplus6)) {
+              console.log('successx+6');
+              forRightReverse(6);
+            }else if (nearYClassItem.includes('x'+ xplus7)) {
+              console.log('successx+7');
+              forRightReverse(7);
+            }
+
+            //ここからマイナス
+            if (nearYClassItem.includes('x'+ xminus1)) {
+              console.log('successx-1');
+            }else if (nearYClassItem.includes(xminus2Coord)) {
+              console.log('successx+2');
+              // var reverseObject;
+              // reverseObject = document.getElementsByClassName('white-stone '+xminus1Coord);
+              // reverseObject = Array.from(reverseObject);
+              // console.log(reverseObject);
+              // reverseObject.forEach((obj) => {
+              //   console.log(obj.classList);
+              //   obj.classList.remove('white-stone');
+              //   obj.classList.add('black-stone');
+              // });
+              forLeftReverse(2);
+            }else if (nearYClassItem.includes(xminus3Coord)) {
+              console.log('successx+3');
+              forLeftReverse(3);
+            }else if (nearYClassItem.includes(xminus4Coord)) {
+              console.log('successx+4');
+              forLeftReverse(4);
+            }else if (nearYClassItem.includes(xminus5Coord)) {
+              console.log('successx+5');
+              forLeftReverse(5);
+            }else if (nearYClassItem.includes(xminus6Coord)) {
+              console.log('successx+6');
+              forLeftReverse(6);
+            }else if (nearYClassItem.includes(xminus7Coord)) {
+              console.log('successx+7');
+              forLeftReverse(7);
             }
           });
         }
@@ -81,6 +159,54 @@ function reverseStone(obj) {
     }
   }
 }
+
+function forRightReverse(count) {
+  for(let reverse_i = 1; reverse_i < count; reverse_i++) {
+    var reverseObject;
+    // console.log(xplus2Coord);
+    // console.log(eval("'white-stone '+xplus" + reverse_i + "Coord"));
+    eval("reverseObject = document.getElementsByClassName('white-stone '+xplus" + reverse_i + "Coord);");
+    reverseObject = Array.from(reverseObject);
+    console.log(reverseObject);
+    reverseObject.forEach((obj) => {
+      console.log(obj.classList);
+      obj.classList.remove('white-stone');
+      obj.classList.add('black-stone');
+    });
+  }
+}
+function forLeftReverse(count){
+    console.log('ここからマイナス');
+    for(let reverse_i = 1; reverse_i < count; reverse_i++) {
+      var reverseObject;
+    console.log(eval("'white-stone '+xminus" + reverse_i + "Coord"));
+    eval("reverseObject = document.getElementsByClassName('white-stone '+xminus" + reverse_i + "Coord);");
+    reverseObject = Array.from(reverseObject);
+    console.log(reverseObject);
+    reverseObject.forEach((obj) => {
+      console.log(obj.classList);
+      obj.classList.remove('white-stone');
+      obj.classList.add('black-stone');
+    });
+  }
+}
+
+function forLeftReverse(count) {
+  for(let reverse_i = 1; reverse_i < count; reverse_i++) {
+    var reverseObject;
+    // console.log(xplus2Coord);
+    // console.log(eval("'white-stone '+xplus" + reverse_i + "Coord"));
+    eval("reverseObject = document.getElementsByClassName('white-stone '+xminus" + reverse_i + "Coord);");
+    reverseObject = Array.from(reverseObject);
+    console.log(reverseObject);
+    reverseObject.forEach((obj) => {
+      console.log(obj.classList);
+      obj.classList.remove('white-stone');
+      obj.classList.add('black-stone');
+    });
+  }
+}
+
 
 
 window.onload = function() {
