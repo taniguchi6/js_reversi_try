@@ -93,7 +93,7 @@
       <div class="rectangle x5 y1"></div>
       <div class="rectangle x6 y1"></div>
       <div class="rectangle x7 y1"></div>
-      <div class="rectangle x8 y1"></div>
+      <div class="rectangle black x8 y1"></div>
     </div>
     <!-- <div class="row">
       <div class="rectangle x8 y8"></div>
@@ -122,9 +122,22 @@
 
   }
   .rectangle {
+    position: relative;
     border: 1px solid #444;
     width: 100px;
     height: 100px;
+    background-color: #0ea14b
+  }
+  .rectangle.black::before {
+    content: "";
+    position: absolute;
+    background-color: #333;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    height: 70%;
+    border-radius: 50%;
   }
 </style>
 </html>
