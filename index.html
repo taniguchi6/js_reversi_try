@@ -6,30 +6,125 @@
   <meta http-equiv="X-UA-Compatible" content="IE=9">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>reversi</title>
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
 </head>
 <body onload="draw();">
   
   <div class="container">
-    <canvas id="canvas"  width="150" height="150"></canvas>
-  </div>
-
-</body>
-<script>
-    window.onload = function() {
-      alert('aa');
-      draw();
-      function draw() {
-        var canvas = document.getElementById('canvas');
-        console.log(canvas.getContext);
-        if (canvas.getContext) {
-          var ctx = canvas.getContext('2d');
-
-          ctx.fillRect(25, 25, 100, 100);
-          ctx.clearRect(45, 45, 60, 60);
-          ctx.strokeRect(50, 50, 50, 50);
-        }
-      }
-    }
+    <canvas id="canvas" width="150" height="150"></canvas>
+    <div class="row">
+      <div class="rectangle x1 y8"></div>
+      <div class="rectangle x2 y8"></div>
+      <div class="rectangle x3 y8"></div>
+      <div class="rectangle x4 y8"></div>
+      <div class="rectangle x5 y8"></div>
+      <div class="rectangle x6 y8"></div>
+      <div class="rectangle x7 y8"></div>
+      <div class="rectangle x8 y8"></div>
+    </div>
+    <div class="row">
+      <div class="rectangle x1 y7"></div>
+      <div class="rectangle x2 y7"></div>
+      <div class="rectangle x3 y7"></div>
+      <div class="rectangle x4 y7"></div>
+      <div class="rectangle x5 y7"></div>
+      <div class="rectangle x6 y7"></div>
+      <div class="rectangle x7 y7"></div>
+      <div class="rectangle x8 y7"></div>
+    </div>
+    <div class="row">
+      <div class="rectangle x1 y6"></div>
+      <div class="rectangle x2 y6"></div>
+      <div class="rectangle x3 y6"></div>
+      <div class="rectangle x4 y6"></div>
+      <div class="rectangle x5 y6"></div>
+      <div class="rectangle x6 y6"></div>
+      <div class="rectangle x7 y6"></div>
+      <div class="rectangle x8 y6"></div>
+    </div>
+    <div class="row">
+      <div class="rectangle x1 y5"></div>
+      <div class="rectangle x2 y5"></div>
+      <div class="rectangle x3 y5"></div>
+      <div class="rectangle x4 y5"></div>
+      <div class="rectangle x5 y5"></div>
+      <div class="rectangle x6 y5"></div>
+      <div class="rectangle x7 y5"></div>
+      <div class="rectangle x8 y5"></div>
+    </div>
+    <div class="row">
+      <div class="rectangle x1 y4"></div>
+      <div class="rectangle x2 y4"></div>
+      <div class="rectangle x3 y4"></div>
+      <div class="rectangle x4 y4"></div>
+      <div class="rectangle x5 y4"></div>
+      <div class="rectangle x6 y4"></div>
+      <div class="rectangle x7 y4"></div>
+      <div class="rectangle x8 y4"></div>
+    </div>
+    <div class="row">
+      <div class="rectangle x1 y3"></div>
+      <div class="rectangle x2 y3"></div>
+      <div class="rectangle x3 y3"></div>
+      <div class="rectangle x4 y3"></div>
+      <div class="rectangle x5 y3"></div>
+      <div class="rectangle x6 y3"></div>
+      <div class="rectangle x7 y3"></div>
+      <div class="rectangle x8 y3"></div>
+    </div>
+    <div class="row">
+      <div class="rectangle x1 y2"></div>
+      <div class="rectangle x2 y2"></div>
+      <div class="rectangle x3 y2"></div>
+      <div class="rectangle x4 y2"></div>
+      <div class="rectangle x5 y2"></div>
+      <div class="rectangle x6 y2"></div>
+      <div class="rectangle x7 y2"></div>
+      <div class="rectangle x8 y2"></div>
+    </div>
+    <div class="row">
+      <div class="rectangle x1 y1"></div>
+      <div class="rectangle x2 y1"></div>
+      <div class="rectangle x3 y1"></div>
+      <div class="rectangle x4 y1"></div>
+      <div class="rectangle x5 y1"></div>
+      <div class="rectangle x6 y1"></div>
+      <div class="rectangle x7 y1"></div>
+      <div class="rectangle x8 y1"></div>
+    </div>
+    <!-- <div class="row">
+      <div class="rectangle x8 y8"></div>
+      <div class="rectangle x8 y8"></div>
+      <div class="rectangle x8 y8"></div>
+      <div class="rectangle x8 y8"></div>
+      <div class="rectangle x8 y8"></div>
+      <div class="rectangle x8 y8"></div>
+      <div class="rectangle x8 y8"></div>
+      <div class="rectangle x8 y8"></div>
+    </div> -->
     
-    </script>
+  </div>
+  <table>
+    <tr>
+      <td><canvas class="rectangle x8 y8" width="150" height="150"></canvas></td>
+    </tr>
+  </table>
+  <table id="gametable">
+  </table>
+<script src="./script.js"></script>
+</body>
+<style>
+  .row {
+    display: flex;
+
+  }
+  .rectangle {
+    border: 1px solid #444;
+    width: 100px;
+    height: 100px;
+  }
+</style>
 </html>
