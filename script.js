@@ -23,11 +23,19 @@ function putBlackStone(obj) {
 
 function reverseStone(obj) {
   for (let xi = 1; xi <= maxWidth; xi++) {
-    xcoord = 'x'+xi;
+    let xcoord = 'x'+xi;
     if(obj.classList.contains(xcoord) == true) {
       console.log(xcoord);
     }
-    
+  }
+  for (let yi = 1; yi <= maxHeight; yi++) {
+    let ycoord = 'y'+yi;
+    if(obj.classList.contains(ycoord) == true) {
+      console.log(ycoord);
+      let result = document.getElementsByClassName('black-stone '+ycoord);
+      console.log(result);
+
+    }
   }
 }
 
