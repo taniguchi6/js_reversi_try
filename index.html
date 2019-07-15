@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>reversi</title>
+</head>
+<body>
+  
+  <div class="container">
+    <div id="canvas"  width="150" height="150" onload="draw();"></div>
+  </div>
+</body>
+<script>
+alert('aa');
+draw();
+function draw() {
+  var canvas = document.getElementById('canvas');
+  console.log(canvas.getContext);
+  if (canvas.getContext) {
+    var ctx = canvas.getContext('2d');
+    
+    ctx.beginPath();
+    ctx.moveTo(75,50);
+    ctx.lineTo(100,75);
+    ctx.lineTo(100,25);
+    ctx.fill();
+  }
+}
+</script>
+</html>
