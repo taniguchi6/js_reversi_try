@@ -50,14 +50,14 @@ function reverseStone(obj) {
         //console.log(sum);
         eval("xplus" + plus_i + "=" + sum + ";");
         eval("xplus" + plus_i + "Coord = 'x' + xplus" + plus_i + ";");
-        console.log(eval("xplus" + plus_i + "Coord"));
+        //console.log(eval("xplus" + plus_i + "Coord"));
       }
       for (minus_i = 1; minus_i <= 7; minus_i++) {
         let sum = xnum - minus_i;
         //console.log(sum);
         eval("xminus" + minus_i + "=" + sum + ";");
         eval("xminus" + minus_i + "Coord = 'x' + xminus" + minus_i + ";");
-        console.log(eval("xminus" + minus_i + "Coord"));
+        //console.log(eval("xminus" + minus_i + "Coord"));
       }
       
       //var xplus2 = xnum + 2;
@@ -94,31 +94,205 @@ function reverseStone(obj) {
               console.log('successx+1');
             }else if (nearYClassItem.includes(xplus2Coord)) {
               console.log('successx+2');
-              // var reverseObject;
-              // reverseObject = document.getElementsByClassName('white-stone '+xplus1Coord);
-              // reverseObject = Array.from(reverseObject);
-              // console.log(reverseObject);
-              // reverseObject.forEach((obj) => {
-              //   console.log(obj.classList);
-              //   obj.classList.remove('white-stone');
-              //   obj.classList.add('black-stone');
-              // });
-              forRightReverse(2);
-            }else if (nearYClassItem.includes('x'+ xplus3)) {
+              console.log(ycoord);
+              let right1 = document.getElementsByClassName(ycoord + ' ' + xplus1Coord);
+              console.log(right1);
+              let right1ClassList;
+              right1 = Array.from(right1);
+              right1.forEach((right) => {
+                right1ClassList = right.classList;
+              });
+              let right1Result = right1ClassList.contains('white-stone');
+              if (right1Result == true) {
+                forRightReverse(2);
+              }
+              
+            }else if (nearYClassItem.includes(xplus3Coord)) {
               console.log('successx+3');
-              forRightReverse(3);
+              let right1 = document.getElementsByClassName(ycoord + ' ' + xplus1Coord);
+              let right2 = document.getElementsByClassName(ycoord + ' ' + xplus2Coord);
+              let right1ClassList;
+              let right2ClassList;
+              right1 = Array.from(right1);
+              right1.forEach((right) => {
+                right1ClassList = right.classList;
+              });
+              right2 = Array.from(right2);
+              right2.forEach((right) => {
+                right2ClassList = right.classList;
+              });
+              let right1Result = right1ClassList.contains('white-stone');
+              let right2Result = right2ClassList.contains('white-stone');
+              console.log(right1Result);
+              console.log(right2Result);
+              if (right1Result == true && right2Result == true) {
+                forRightReverse(3);
+              }
+              
             }else if (nearYClassItem.includes('x'+ xplus4)) {
               console.log('successx+4');
-              forRightReverse(4);
+              let right1 = document.getElementsByClassName(ycoord + ' ' + xplus1Coord);
+              let right2 = document.getElementsByClassName(ycoord + ' ' + xplus2Coord);
+              let right3 = document.getElementsByClassName(ycoord + ' ' + xplus3Coord);
+              let right1ClassList;
+              let right2ClassList;
+              let right3ClassList;
+              right1 = Array.from(right1);
+              right1.forEach((right) => {
+                right1ClassList = right.classList;
+              });
+              right2 = Array.from(right2);
+              right2.forEach((right) => {
+                right2ClassList = right.classList;
+              });
+              right3 = Array.from(right3);
+              right3.forEach((right) => {
+                right3ClassList = right.classList;
+              });
+              let right1Result = right1ClassList.contains('white-stone');
+              let right2Result = right2ClassList.contains('white-stone');
+              let right3Result = right3ClassList.contains('white-stone');
+              console.log(right1Result);
+              console.log(right2Result);
+              console.log(right3Result);
+              if (right1Result == true && right2Result == true && right3Result == true) {
+                forRightReverse(4);
+              }
             }else if (nearYClassItem.includes('x'+ xplus5)) {
               console.log('successx+5');
-              forRightReverse(5);
+              let right1 = document.getElementsByClassName(ycoord + ' ' + xplus1Coord);
+              let right2 = document.getElementsByClassName(ycoord + ' ' + xplus2Coord);
+              let right3 = document.getElementsByClassName(ycoord + ' ' + xplus3Coord);
+              let right4 = document.getElementsByClassName(ycoord + ' ' + xplus4Coord);
+              let right1ClassList;
+              let right2ClassList;
+              let right3ClassList;
+              let right4ClassList;
+              right1 = Array.from(right1);
+              right1.forEach((right) => {
+                right1ClassList = right.classList;
+              });
+              right2 = Array.from(right2);
+              right2.forEach((right) => {
+                right2ClassList = right.classList;
+              });
+              right3 = Array.from(right3);
+              right3.forEach((right) => {
+                right3ClassList = right.classList;
+              });
+              right4 = Array.from(right4);
+              right4.forEach((right) => {
+                right4ClassList = right.classList;
+              });
+              let right1Result = right1ClassList.contains('white-stone');
+              let right2Result = right2ClassList.contains('white-stone');
+              let right3Result = right3ClassList.contains('white-stone');
+              let right4Result = right4ClassList.contains('white-stone');
+              console.log(right1Result);
+              console.log(right2Result);
+              console.log(right3Result);
+              console.log(right4Result);
+              if (right1Result == true && right2Result == true && right3Result == true && right4Result == true) {
+                forRightReverse(5);
+              }
             }else if (nearYClassItem.includes('x'+ xplus6)) {
               console.log('successx+6');
-              forRightReverse(6);
+              let right1 = document.getElementsByClassName(ycoord + ' ' + xplus1Coord);
+              let right2 = document.getElementsByClassName(ycoord + ' ' + xplus2Coord);
+              let right3 = document.getElementsByClassName(ycoord + ' ' + xplus3Coord);
+              let right4 = document.getElementsByClassName(ycoord + ' ' + xplus4Coord);
+              let right5 = document.getElementsByClassName(ycoord + ' ' + xplus5Coord);
+              let right1ClassList;
+              let right2ClassList;
+              let right3ClassList;
+              let right4ClassList;
+              let right5ClassList;
+              right1 = Array.from(right1);
+              right1.forEach((right) => {
+                right1ClassList = right.classList;
+              });
+              right2 = Array.from(right2);
+              right2.forEach((right) => {
+                right2ClassList = right.classList;
+              });
+              right3 = Array.from(right3);
+              right3.forEach((right) => {
+                right3ClassList = right.classList;
+              });
+              right4 = Array.from(right4);
+              right4.forEach((right) => {
+                right4ClassList = right.classList;
+              });
+              right5 = Array.from(right5);
+              right5.forEach((right) => {
+                right5ClassList = right.classList;
+              });
+              let right1Result = right1ClassList.contains('white-stone');
+              let right2Result = right2ClassList.contains('white-stone');
+              let right3Result = right3ClassList.contains('white-stone');
+              let right4Result = right4ClassList.contains('white-stone');
+              let right5Result = right5ClassList.contains('white-stone');
+              console.log(right1Result);
+              console.log(right2Result);
+              console.log(right3Result);
+              console.log(right4Result);
+              console.log(right5Result);
+              if (right1Result == true && right2Result == true && right3Result == true && right4Result == true && right5Result == true) {
+                forRightReverse(6);
+              }
             }else if (nearYClassItem.includes('x'+ xplus7)) {
               console.log('successx+7');
-              forRightReverse(7);
+              let right1 = document.getElementsByClassName(ycoord + ' ' + xplus1Coord);
+              let right2 = document.getElementsByClassName(ycoord + ' ' + xplus2Coord);
+              let right3 = document.getElementsByClassName(ycoord + ' ' + xplus3Coord);
+              let right4 = document.getElementsByClassName(ycoord + ' ' + xplus4Coord);
+              let right5 = document.getElementsByClassName(ycoord + ' ' + xplus5Coord);
+              let right6 = document.getElementsByClassName(ycoord + ' ' + xplus6Coord);
+              let right1ClassList;
+              let right2ClassList;
+              let right3ClassList;
+              let right4ClassList;
+              let right5ClassList;
+              let right6ClassList;
+              right1 = Array.from(right1);
+              right1.forEach((right) => {
+                right1ClassList = right.classList;
+              });
+              right2 = Array.from(right2);
+              right2.forEach((right) => {
+                right2ClassList = right.classList;
+              });
+              right3 = Array.from(right3);
+              right3.forEach((right) => {
+                right3ClassList = right.classList;
+              });
+              right4 = Array.from(right4);
+              right4.forEach((right) => {
+                right4ClassList = right.classList;
+              });
+              right5 = Array.from(right5);
+              right5.forEach((right) => {
+                right5ClassList = right.classList;
+              });
+              right6 = Array.from(right6);
+              right6.forEach((right) => {
+                right6ClassList = right.classList;
+              });
+              let right1Result = right1ClassList.contains('white-stone');
+              let right2Result = right2ClassList.contains('white-stone');
+              let right3Result = right3ClassList.contains('white-stone');
+              let right4Result = right4ClassList.contains('white-stone');
+              let right5Result = right5ClassList.contains('white-stone');
+              let right6Result = right6ClassList.contains('white-stone');
+              console.log(right1Result);
+              console.log(right2Result);
+              console.log(right3Result);
+              console.log(right4Result);
+              console.log(right5Result);
+              console.log(right6Result);
+              if (right1Result == true && right2Result == true && right3Result == true && right4Result == true && right5Result == true && right6Result == true) {
+                forRightReverse(7);
+              }
             }
 
             //ここからマイナス
@@ -126,31 +300,202 @@ function reverseStone(obj) {
               console.log('successx-1');
             }else if (nearYClassItem.includes(xminus2Coord)) {
               console.log('successx+2');
-              // var reverseObject;
-              // reverseObject = document.getElementsByClassName('white-stone '+xminus1Coord);
-              // reverseObject = Array.from(reverseObject);
-              // console.log(reverseObject);
-              // reverseObject.forEach((obj) => {
-              //   console.log(obj.classList);
-              //   obj.classList.remove('white-stone');
-              //   obj.classList.add('black-stone');
-              // });
-              forLeftReverse(2);
+              let left1 = document.getElementsByClassName(ycoord + ' ' + xminus1Coord);
+              let left1ClassList;
+              left1 = Array.from(left1);
+              left1.forEach((left) => {
+                left1ClassList = left.classList;
+              });
+              let left1Result = left1ClassList.contains('white-stone');
+              console.log(left1Result);
+              if (left1Result == true) {
+                forLeftReverse(2);
+              }
             }else if (nearYClassItem.includes(xminus3Coord)) {
               console.log('successx+3');
-              forLeftReverse(3);
+              let left1 = document.getElementsByClassName(ycoord + ' ' + xminus1Coord);
+              let left2 = document.getElementsByClassName(ycoord + ' ' + xminus2Coord);
+              let left1ClassList;
+              let left2ClassList;
+              left1 = Array.from(left1);
+              left1.forEach((left) => {
+                left1ClassList = left.classList;
+              });
+              left2 = Array.from(left2);
+              left2.forEach((left) => {
+                left2ClassList = left.classList;
+              });
+              let left1Result = left1ClassList.contains('white-stone');
+              let left2Result = left2ClassList.contains('white-stone');
+              console.log(left1Result);
+              console.log(left2Result);
+              if (left1Result == true && left2Result == true) {
+                forLeftReverse(3);
+              }
             }else if (nearYClassItem.includes(xminus4Coord)) {
               console.log('successx+4');
-              forLeftReverse(4);
+              let left1 = document.getElementsByClassName(ycoord + ' ' + xminus1Coord);
+              let left2 = document.getElementsByClassName(ycoord + ' ' + xminus2Coord);
+              let left3 = document.getElementsByClassName(ycoord + ' ' + xminus3Coord);
+              let left1ClassList;
+              let left2ClassList;
+              let left3ClassList;
+              left1 = Array.from(left1);
+              left1.forEach((left) => {
+                left1ClassList = left.classList;
+              });
+              left2 = Array.from(left2);
+              left2.forEach((left) => {
+                left2ClassList = left.classList;
+              });
+              left3 = Array.from(left3);
+              left3.forEach((left) => {
+                left3ClassList = left.classList;
+              });
+              let left1Result = left1ClassList.contains('white-stone');
+              let left2Result = left2ClassList.contains('white-stone');
+              let left3Result = left3ClassList.contains('white-stone');
+              console.log(left1Result);
+              console.log(left2Result);
+              console.log(left3Result);
+              if (left1Result == true && left2Result == true && left3Result == true) {
+                forLeftReverse(4);
+              }
             }else if (nearYClassItem.includes(xminus5Coord)) {
               console.log('successx+5');
-              forLeftReverse(5);
+              let left1 = document.getElementsByClassName(ycoord + ' ' + xminus1Coord);
+              let left2 = document.getElementsByClassName(ycoord + ' ' + xminus2Coord);
+              let left3 = document.getElementsByClassName(ycoord + ' ' + xminus3Coord);
+              let left4 = document.getElementsByClassName(ycoord + ' ' + xminus4Coord);
+              let left1ClassList;
+              let left2ClassList;
+              let left3ClassList;
+              let left4ClassList;
+              left1 = Array.from(left1);
+              left1.forEach((left) => {
+                left1ClassList = left.classList;
+              });
+              left2 = Array.from(left2);
+              left2.forEach((left) => {
+                left2ClassList = left.classList;
+              });
+              left3 = Array.from(left3);
+              left3.forEach((left) => {
+                left3ClassList = left.classList;
+              });
+              left4 = Array.from(left4);
+              left4.forEach((left) => {
+                left4ClassList = left.classList;
+              });
+              let left1Result = left1ClassList.contains('white-stone');
+              let left2Result = left2ClassList.contains('white-stone');
+              let left3Result = left3ClassList.contains('white-stone');
+              let left4Result = left4ClassList.contains('white-stone');
+              console.log(left1Result);
+              console.log(left2Result);
+              console.log(left3Result);
+              console.log(left4Result);
+              if (left1Result == true && left2Result == true && left3Result == true && left4Result == true) {
+                forLeftReverse(5);
+              }
             }else if (nearYClassItem.includes(xminus6Coord)) {
               console.log('successx+6');
-              forLeftReverse(6);
+              let left1 = document.getElementsByClassName(ycoord + ' ' + xminus1Coord);
+              let left2 = document.getElementsByClassName(ycoord + ' ' + xminus2Coord);
+              let left3 = document.getElementsByClassName(ycoord + ' ' + xminus3Coord);
+              let left4 = document.getElementsByClassName(ycoord + ' ' + xminus4Coord);
+              let left5 = document.getElementsByClassName(ycoord + ' ' + xminus5Coord);
+              let left1ClassList;
+              let left2ClassList;
+              let left3ClassList;
+              let left4ClassList;
+              let left5ClassList;
+              left1 = Array.from(left1);
+              left1.forEach((left) => {
+                left1ClassList = left.classList;
+              });
+              left2 = Array.from(left2);
+              left2.forEach((left) => {
+                left2ClassList = left.classList;
+              });
+              left3 = Array.from(left3);
+              left3.forEach((left) => {
+                left3ClassList = left.classList;
+              });
+              left4 = Array.from(left4);
+              left4.forEach((left) => {
+                left4ClassList = left.classList;
+              });
+              left5 = Array.from(left5);
+              left5.forEach((left) => {
+                left5ClassList = left.classList;
+              });
+              let left1Result = left1ClassList.contains('white-stone');
+              let left2Result = left2ClassList.contains('white-stone');
+              let left3Result = left3ClassList.contains('white-stone');
+              let left4Result = left4ClassList.contains('white-stone');
+              let left5Result = left5ClassList.contains('white-stone');
+              console.log(left1Result);
+              console.log(left2Result);
+              console.log(left3Result);
+              console.log(left4Result);
+              console.log(left5Result);
+              if (left1Result == true && left2Result == true && left3Result == true && left4Result == true && left5Result == true) {
+                forLeftReverse(6);
+              }
             }else if (nearYClassItem.includes(xminus7Coord)) {
               console.log('successx+7');
-              forLeftReverse(7);
+              let left1 = document.getElementsByClassName(ycoord + ' ' + xminus1Coord);
+              let left2 = document.getElementsByClassName(ycoord + ' ' + xminus2Coord);
+              let left3 = document.getElementsByClassName(ycoord + ' ' + xminus3Coord);
+              let left4 = document.getElementsByClassName(ycoord + ' ' + xminus4Coord);
+              let left5 = document.getElementsByClassName(ycoord + ' ' + xminus5Coord);
+              let left6 = document.getElementsByClassName(ycoord + ' ' + xminus6Coord);
+              let left1ClassList;
+              let left2ClassList;
+              let left3ClassList;
+              let left4ClassList;
+              let left5ClassList;
+              let left6ClassList;
+              left1 = Array.from(left1);
+              left1.forEach((left) => {
+                left1ClassList = left.classList;
+              });
+              left2 = Array.from(left2);
+              left2.forEach((left) => {
+                left2ClassList = left.classList;
+              });
+              left3 = Array.from(left3);
+              left3.forEach((left) => {
+                left3ClassList = left.classList;
+              });
+              left4 = Array.from(left4);
+              left4.forEach((left) => {
+                left4ClassList = left.classList;
+              });
+              left5 = Array.from(left5);
+              left5.forEach((left) => {
+                left5ClassList = left.classList;
+              });
+              left6 = Array.from(left6);
+              left6.forEach((left) => {
+                left6ClassList = left.classList;
+              });
+              let left1Result = left1ClassList.contains('white-stone');
+              let left2Result = left2ClassList.contains('white-stone');
+              let left3Result = left3ClassList.contains('white-stone');
+              let left4Result = left4ClassList.contains('white-stone');
+              let left5Result = left5ClassList.contains('white-stone');
+              let left6Result = left6ClassList.contains('white-stone');
+              console.log(left1Result);
+              console.log(left2Result);
+              console.log(left3Result);
+              console.log(left4Result);
+              console.log(left5Result);
+              console.log(left6Result);
+              if (left1Result == true && left2Result == true && left3Result == true && left4Result == true && left5Result == true && left6Result == true) {
+                forLeftReverse(7);
+              }
             }
           });
         }
@@ -204,45 +549,5 @@ function forLeftReverse(count) {
       obj.classList.remove('white-stone');
       obj.classList.add('black-stone');
     });
-  }
-}
-
-
-
-window.onload = function() {
-  //alert('11');
-    // 
-    // for (let width_i = 0; width_i < maxHeight; width_i++) {
-      
-    //     //$("#gametable").append("<tr>");
-    //     document.write('<tr>');
-    //       for (let height_i = 0; height_i < maxWidth; height_i++) {
-    //         $("#gametable").append('<td><canvas class="rectangle" width="150" height="150"></canvas></td>');
-    //       }
-    //     $("#gametable").append("</tr>");
-    // }
-
-    // for (let width_i = 0; width_i < maxHeight; width_i++) {
-      
-    //   $("#gametable").append("<div>");
-    //     for (let height_i = 0; height_i < maxWidth; height_i++) {
-    //       $("#gametable").append('<td>aa<canvas class="rectangle" width="150" height="150"></canvas></td>');
-    //     }
-    //   $("#gametable").append("</div>");
-    // }
-
-  //alert('aa');
-  draw();
-  function draw() {
-      var canvas = document.getElementById('canvas');
-      //var canvas = document.getElementsByClassName('rectangle');
-      console.log(canvas);
-      if (canvas.getContext) {
-      var ctx = canvas.getContext('2d');
-      console.log(canvas);
-      ctx.fillRect(25, 25, 100, 100);
-      ctx.clearRect(45, 45, 60, 60);
-      ctx.strokeRect(50, 50, 50, 50);
-    }
   }
 }
