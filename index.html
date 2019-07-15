@@ -92,26 +92,16 @@
       <div class="rectangle x4 y1"></div>
       <div class="rectangle x5 y1"></div>
       <div class="rectangle x6 y1"></div>
-      <div class="rectangle x7 y1"></div>
-      <div class="rectangle black x8 y1"></div>
+      <div class="rectangle white-stone x7 y1"></div>
+      <div class="rectangle black-stone x8 y1"></div>
     </div>
-    <!-- <div class="row">
-      <div class="rectangle x8 y8"></div>
-      <div class="rectangle x8 y8"></div>
-      <div class="rectangle x8 y8"></div>
-      <div class="rectangle x8 y8"></div>
-      <div class="rectangle x8 y8"></div>
-      <div class="rectangle x8 y8"></div>
-      <div class="rectangle x8 y8"></div>
-      <div class="rectangle x8 y8"></div>
-    </div> -->
     
   </div>
-  <table>
+  <!-- <table>
     <tr>
       <td><canvas class="rectangle x8 y8" width="150" height="150"></canvas></td>
     </tr>
-  </table>
+  </table> -->
   <table id="gametable">
   </table>
 <script src="./script.js"></script>
@@ -128,10 +118,21 @@
     height: 100px;
     background-color: #0ea14b
   }
-  .rectangle.black::before {
+  .rectangle.black-stone::before {
     content: "";
     position: absolute;
     background-color: #333;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    height: 70%;
+    border-radius: 50%;
+  }
+  .rectangle.white-stone::before {
+    content: "";
+    position: absolute;
+    background-color: #fff;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
