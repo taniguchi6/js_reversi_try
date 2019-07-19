@@ -36,6 +36,9 @@ var xminus4Coord;
 var xminus5Coord;
 var xminus6Coord;
 var xminus7Coord;
+
+var isNoGapResultArray = [];
+
 function reverseStone(obj) {
   for (let xi = 1; xi <= maxWidth; xi++) {
     if(obj.classList.contains('x'+xi) == true) {
@@ -102,11 +105,14 @@ function reverseStone(obj) {
               right1.forEach((right) => {
                 right1ClassList = right.classList;
               });
-              let right1Result = right1ClassList.contains('white-stone');
-              if (right1Result == true) {
+
+              isNoGapResultArray.length = 0;
+              isNoGapResultArray.push(right1ClassList.contains('white-stone'));
+              console.log(isNoGapResultArray);
+              console.log(isNoGapResultArray.every(item => item == true));
+              if (isNoGapResultArray.every(item => item == true)){
                 forRightReverse(2);
               }
-              
             }else if (nearYClassItem.includes(xplus3Coord)) {
               console.log('successx+3');
               let right1 = document.getElementsByClassName(ycoord + ' ' + xplus1Coord);
@@ -121,13 +127,21 @@ function reverseStone(obj) {
               right2.forEach((right) => {
                 right2ClassList = right.classList;
               });
-              let right1Result = right1ClassList.contains('white-stone');
-              let right2Result = right2ClassList.contains('white-stone');
-              console.log(right1Result);
-              console.log(right2Result);
-              if (right1Result == true && right2Result == true) {
+              isNoGapResultArray.length = 0;
+              isNoGapResultArray.push(right1ClassList.contains('white-stone'));
+              isNoGapResultArray.push(right2ClassList.contains('white-stone'));
+              console.log(isNoGapResultArray);
+              // let right1Result = right1ClassList.contains('white-stone');
+              // let right2Result = right2ClassList.contains('white-stone');
+              // console.log(right1Result);
+              // console.log(right2Result);
+              console.log(isNoGapResultArray.every(item => item == true));
+              if (isNoGapResultArray.every(item => item == true)){
                 forRightReverse(3);
               }
+              // if (right1Result == true && right2Result == true) {
+                
+              // }
               
             }else if (nearYClassItem.includes('x'+ xplus4)) {
               console.log('successx+4');
@@ -149,13 +163,12 @@ function reverseStone(obj) {
               right3.forEach((right) => {
                 right3ClassList = right.classList;
               });
-              let right1Result = right1ClassList.contains('white-stone');
-              let right2Result = right2ClassList.contains('white-stone');
-              let right3Result = right3ClassList.contains('white-stone');
-              console.log(right1Result);
-              console.log(right2Result);
-              console.log(right3Result);
-              if (right1Result == true && right2Result == true && right3Result == true) {
+
+              isNoGapResultArray.length = 0;
+              isNoGapResultArray.push(right1ClassList.contains('white-stone'));
+              isNoGapResultArray.push(right2ClassList.contains('white-stone'));
+              isNoGapResultArray.push(right3ClassList.contains('white-stone'));
+              if (isNoGapResultArray.every(item => item == true)){
                 forRightReverse(4);
               }
             }else if (nearYClassItem.includes('x'+ xplus5)) {
@@ -184,17 +197,16 @@ function reverseStone(obj) {
               right4.forEach((right) => {
                 right4ClassList = right.classList;
               });
-              let right1Result = right1ClassList.contains('white-stone');
-              let right2Result = right2ClassList.contains('white-stone');
-              let right3Result = right3ClassList.contains('white-stone');
-              let right4Result = right4ClassList.contains('white-stone');
-              console.log(right1Result);
-              console.log(right2Result);
-              console.log(right3Result);
-              console.log(right4Result);
-              if (right1Result == true && right2Result == true && right3Result == true && right4Result == true) {
+
+              isNoGapResultArray.length = 0;
+              isNoGapResultArray.push(right1ClassList.contains('white-stone'));
+              isNoGapResultArray.push(right2ClassList.contains('white-stone'));
+              isNoGapResultArray.push(right3ClassList.contains('white-stone'));
+              isNoGapResultArray.push(right4ClassList.contains('white-stone'));
+              if (isNoGapResultArray.every(item => item == true)){
                 forRightReverse(5);
               }
+
             }else if (nearYClassItem.includes('x'+ xplus6)) {
               console.log('successx+6');
               let right1 = document.getElementsByClassName(ycoord + ' ' + xplus1Coord);
@@ -227,17 +239,14 @@ function reverseStone(obj) {
               right5.forEach((right) => {
                 right5ClassList = right.classList;
               });
-              let right1Result = right1ClassList.contains('white-stone');
-              let right2Result = right2ClassList.contains('white-stone');
-              let right3Result = right3ClassList.contains('white-stone');
-              let right4Result = right4ClassList.contains('white-stone');
-              let right5Result = right5ClassList.contains('white-stone');
-              console.log(right1Result);
-              console.log(right2Result);
-              console.log(right3Result);
-              console.log(right4Result);
-              console.log(right5Result);
-              if (right1Result == true && right2Result == true && right3Result == true && right4Result == true && right5Result == true) {
+
+              isNoGapResultArray.length = 0;
+              isNoGapResultArray.push(right1ClassList.contains('white-stone'));
+              isNoGapResultArray.push(right2ClassList.contains('white-stone'));
+              isNoGapResultArray.push(right3ClassList.contains('white-stone'));
+              isNoGapResultArray.push(right4ClassList.contains('white-stone'));
+              isNoGapResultArray.push(right5ClassList.contains('white-stone'));
+              if (isNoGapResultArray.every(item => item == true)){
                 forRightReverse(6);
               }
             }else if (nearYClassItem.includes('x'+ xplus7)) {
@@ -278,19 +287,14 @@ function reverseStone(obj) {
               right6.forEach((right) => {
                 right6ClassList = right.classList;
               });
-              let right1Result = right1ClassList.contains('white-stone');
-              let right2Result = right2ClassList.contains('white-stone');
-              let right3Result = right3ClassList.contains('white-stone');
-              let right4Result = right4ClassList.contains('white-stone');
-              let right5Result = right5ClassList.contains('white-stone');
-              let right6Result = right6ClassList.contains('white-stone');
-              console.log(right1Result);
-              console.log(right2Result);
-              console.log(right3Result);
-              console.log(right4Result);
-              console.log(right5Result);
-              console.log(right6Result);
-              if (right1Result == true && right2Result == true && right3Result == true && right4Result == true && right5Result == true && right6Result == true) {
+              isNoGapResultArray.length = 0;
+              isNoGapResultArray.push(right1ClassList.contains('white-stone'));
+              isNoGapResultArray.push(right2ClassList.contains('white-stone'));
+              isNoGapResultArray.push(right3ClassList.contains('white-stone'));
+              isNoGapResultArray.push(right4ClassList.contains('white-stone'));
+              isNoGapResultArray.push(right5ClassList.contains('white-stone'));
+              isNoGapResultArray.push(right6ClassList.contains('white-stone'));
+              if (isNoGapResultArray.every(item => item == true)){
                 forRightReverse(7);
               }
             }
