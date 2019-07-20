@@ -246,17 +246,7 @@ function reverseStone(obj) {
     console.log(result);
     if (result != '') {
       console.log("success(x+2,y+2)");
-      let diagonal2;
-    
-      // eval("diagonal" + reverse_i + " = document.getElementsByClassName(xplus" + reverse_i + "Coord + ' ' + yplus" + reverse_i + "Coord);");
-      // eval("console.log(diagonal" + reverse_i + ");");
-      // eval("let diagonal" + reverse_i + "ClassList;");
-      // eval("diagonal" + reverse_i + " = Array.from(diagonal" + reverse_i + ");");
-      // eval("console.log(diagonal" + reverse_i + ");");
-      // eval("diagonal" + reverse_i + ".forEach((diagonal) => {" +
-      //   "diagonal" + reverse_i + "ClassList = diagonal.classList;" +
-      // "});");
-      // eval("console.log(diagonal" + reverse_i + "ClassList);");
+      //let diagonal2;
       console.log(diagonal3ClassList)
       console.log(diagonal2ClassList)
 
