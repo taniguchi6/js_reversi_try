@@ -171,52 +171,157 @@ function reverseStone(obj) {
   });
 
   //xiをもちblack-stoneもつ要素を配列で取得
-  result = '';
-  result = document.getElementsByClassName('black-stone '+xplus1Coord + ' ' + yplus1Coord);
-  console.log(result);
-  result = Array.from(result);
-  console.log(result);
-  if (result != '') {
-    console.log("success(x+1,y+1)");
-  }else{
-    console.log("none");
-  }
-  result = '';
-  result = document.getElementsByClassName('black-stone '+xplus2Coord + ' ' + yplus2Coord);
-  console.log(result);
-  result = Array.from(result);
-  console.log(result);
-  if (result != '') {
-    console.log("success(x+2,y+2)");
+  // result = '';
+  // result = document.getElementsByClassName('black-stone '+xplus1Coord + ' ' + yplus1Coord);
+  // console.log(result);
+  // result = Array.from(result);
+  // console.log(result);
+  // if (result != '') {
+  //   console.log("success(x+1,y+1)");
+  // }else{
+  //   console.log("none");
+  // }
+  // result = '';
+  // result = document.getElementsByClassName('black-stone '+xplus2Coord + ' ' + yplus2Coord);
+  // console.log(result);
+  // result = Array.from(result);
+  // console.log(result);
+  // if (result != '') {
+  //   console.log("success(x+2,y+2)");
 
+  //   let diagonal1 = document.getElementsByClassName(xplus1Coord + ' ' + yplus1Coord);
+  //       console.log(diagonal1);
+  //       let diagonal1ClassList;
+  //       diagonal1 = Array.from(diagonal1);
+  //       console.log(diagonal1);
+  //       diagonal1.forEach((diagonal) => {
+  //         diagonal1ClassList = diagonal.classList;
+  //       });
+  //       console.log(diagonal1ClassList);
+
+  //       isNoGapResultArray.length = 0;
+  //       console.log(isNoGapResultArray);
+  //       console.log(diagonal1ClassList.contains('white-stone'));
+  //       isNoGapResultArray.push(diagonal1ClassList.contains('white-stone'));
+  //       console.log(isNoGapResultArray);
+  //       console.log(isNoGapResultArray.every(item => item == true));
+  //       if (isNoGapResultArray.every(item => item == true)){
+  //         forTopRightReverse(2);
+  //       }
+  // }else{
+  //   console.log("none");
+  // }
+  var diagonal1ClassList;
+  var diagonal2ClassList;
+  var diagonal3ClassList;
+  var diagonal4ClassList;
+  var diagonal5ClassList;
+  var diagonal6ClassList;
+  var diagonal7ClassList;
+  for(let reverse_i = 1; reverse_i <= 7; reverse_i++) {
+    result = '';
+    console.log(eval("'black-stone '+xplus" + reverse_i + "Coord + ' ' + yplus" + reverse_i + "Coord"));
+    eval("result = document.getElementsByClassName('black-stone '+xplus" + reverse_i + "Coord + ' ' + yplus" + reverse_i + "Coord);");
     let diagonal1 = document.getElementsByClassName(xplus1Coord + ' ' + yplus1Coord);
-        console.log(diagonal1);
-        let diagonal1ClassList;
-        diagonal1 = Array.from(diagonal1);
-        console.log(diagonal1);
-        diagonal1.forEach((diagonal) => {
-          diagonal1ClassList = diagonal.classList;
-        });
-        console.log(diagonal1ClassList);
+    console.log(xplus1Coord + ' ' + yplus1Coord);
+    diagonal1 = Array.from(diagonal1);
+    var diagonal1ClassList;
+    diagonal1.forEach((diagonal) => {
+      diagonal1ClassList = diagonal.classList;
+    });
+    console.log(diagonal1ClassList);
 
-        isNoGapResultArray.length = 0;
-        console.log(isNoGapResultArray);
-        console.log(diagonal1ClassList.contains('white-stone'));
-        isNoGapResultArray.push(diagonal1ClassList.contains('white-stone'));
-        console.log(isNoGapResultArray);
-        console.log(isNoGapResultArray.every(item => item == true));
-        if (isNoGapResultArray.every(item => item == true)){
-          forTopRightReverse(2);
-        }
+    eval("diagonal" + reverse_i + " = document.getElementsByClassName(xplus" + reverse_i + "Coord + ' ' + yplus" + reverse_i + "Coord);");
+      eval("console.log(diagonal" + reverse_i + ");");
+      eval("let diagonal" + reverse_i + "ClassList;");
+      eval("diagonal" + reverse_i + " = Array.from(diagonal" + reverse_i + ");");
+      eval("console.log(diagonal" + reverse_i + ");");
+      eval("diagonal" + reverse_i + ".forEach((diagonal) => {" +
+        "diagonal" + reverse_i + "ClassList = diagonal.classList;" +
+      "});");
+      eval("console.log(diagonal" + reverse_i + "ClassList);");
     
-  }else{
+    console.log(result);
+    result = Array.from(result);
+    console.log(result);
+    if (result != '') {
+      console.log("success(x+2,y+2)");
+      let diagonal2;
+    
+      // eval("diagonal" + reverse_i + " = document.getElementsByClassName(xplus" + reverse_i + "Coord + ' ' + yplus" + reverse_i + "Coord);");
+      // eval("console.log(diagonal" + reverse_i + ");");
+      // eval("let diagonal" + reverse_i + "ClassList;");
+      // eval("diagonal" + reverse_i + " = Array.from(diagonal" + reverse_i + ");");
+      // eval("console.log(diagonal" + reverse_i + ");");
+      // eval("diagonal" + reverse_i + ".forEach((diagonal) => {" +
+      //   "diagonal" + reverse_i + "ClassList = diagonal.classList;" +
+      // "});");
+      // eval("console.log(diagonal" + reverse_i + "ClassList);");
+      console.log(diagonal3ClassList)
+      console.log(diagonal2ClassList)
+
+      isNoGapResultArray.length = 0;
+      console.log(isNoGapResultArray);
+      for (let i = 1; i < reverse_i; i++) {
+        console.log(i);
+        eval("console.log(diagonal" + i + "ClassList.contains('white-stone'))");
+        eval("isNoGapResultArray.push(diagonal" + i + "ClassList.contains('white-stone'));");
+      }
+      // console.log(diagonal1ClassList.contains('white-stone'));
+      // isNoGapResultArray.push(diagonal1ClassList.contains('white-stone'));
+      console.log(isNoGapResultArray);
+      console.log(isNoGapResultArray.every(item => item == true));
+      if (isNoGapResultArray.every(item => item == true)){
+        forTopRightReverse(reverse_i);
+      }
+    }else{
     console.log("none");
+    }
   }
-  // result.forEach((xresult) => {
-  //   console.log(xresult);
-  //   console.log(currentXcoord);
-  //   isNoGapVertical(xresult,ycoord,currentXcoord)
-  // });
+
+
+    // var reverseObject;
+    // console.log(eval("'white-stone '+xplus" + reverse_i + "Coord + ' ' + yplus" + reverse_i + "Coord"));
+    // eval("reverseObject = document.getElementsByClassName('white-stone '+xplus" + reverse_i + "Coord + ' ' + yplus" + reverse_i + "Coord);");
+    // reverseObject = Array.from(reverseObject);
+    // console.log(reverseObject);
+    // reverseObject.forEach((obj) => {
+    //   console.log(obj.classList);
+    //   obj.classList.remove('white-stone');
+    //   obj.classList.add('black-stone');
+    // });
+
+
+  // result = '';
+  // result = document.getElementsByClassName('black-stone '+xplus2Coord + ' ' + yplus2Coord);
+  // console.log(result);
+  // result = Array.from(result);
+  // console.log(result);
+  // if (result != '') {
+  //   console.log("success(x+2,y+2)");
+
+  //   let diagonal1 = document.getElementsByClassName(xplus1Coord + ' ' + yplus1Coord);
+  //       console.log(diagonal1);
+  //       let diagonal1ClassList;
+  //       diagonal1 = Array.from(diagonal1);
+  //       console.log(diagonal1);
+  //       diagonal1.forEach((diagonal) => {
+  //         diagonal1ClassList = diagonal.classList;
+  //       });
+  //       console.log(diagonal1ClassList);
+
+  //       isNoGapResultArray.length = 0;
+  //       console.log(isNoGapResultArray);
+  //       console.log(diagonal1ClassList.contains('white-stone'));
+  //       isNoGapResultArray.push(diagonal1ClassList.contains('white-stone'));
+  //       console.log(isNoGapResultArray);
+  //       console.log(isNoGapResultArray.every(item => item == true));
+  //       if (isNoGapResultArray.every(item => item == true)){
+  //         forTopRightReverse(2);
+  //       }
+  // }else{
+  //   console.log("none");
+  // }
 }
 
 function forRightReverse(count) {
@@ -283,7 +388,7 @@ function forTopReverse(count) {
   }
 }
 function forBottomReverse(count){
-    console.log('ここからマイナス');
+    console.log('右上斜め');
     for(let reverse_i = 1; reverse_i < count; reverse_i++) {
       var reverseObject;
     console.log(eval("'white-stone '+yminus" + reverse_i + "Coord"));
