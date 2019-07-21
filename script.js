@@ -6,7 +6,6 @@ const rectangleObject = document.getElementsByClassName('rectangle');
 
 for (let i = 0; i < rectangleObject.length; i++) {
   rectangleObject[i].addEventListener('click', () => {
-    //rectangleObject[i].classList.add('black-stone');
     putBlackStone(rectangleObject[i]);
     
   }, false);
@@ -72,11 +71,8 @@ function reverseStone(obj) {
 
       for (let plus_i = 1; plus_i <= 7; plus_i++) {
         let sum = xnum + plus_i;
-        //console.log(sum);
         eval("xplus" + plus_i + "=" + sum + ";");
-        // eval("xplus" + plus_i + "Coord = 'x' + xplus" + plus_i + ";");
         eval("xplus" + plus_i + "Coord = 'x' + " + sum + ";");
-        //console.log(eval("xplus" + plus_i + "Coord"));
       }
       for (let minus_i = 1; minus_i <= 7; minus_i++) {
         //石を置いたX座標-(1~7)した数値が入る
@@ -86,35 +82,18 @@ function reverseStone(obj) {
         // eval("xminus" + minus_i + "Coord = 'x' + xminus" + minus_i + ";");
         eval("xminus" + minus_i + "Coord = 'x' + " + sum + ";");
       }
-      console.log(xplus3Coord);
-      console.log(xminus3Coord);
-
-      //xiをもちblack-stoneもつ要素を配列で取得
-      // let result = document.getElementsByClassName('black-stone '+xcoord);
-      // result = Array.from(result);
-      // console.log(result);
-      // result.forEach((xresult) => {
-      //   console.log(xresult);
-      //   console.log(ycoord);
-      //   isNoGapVertical(xresult,ycoord,xcoord)
-      // });
-
     }
   }
   for (let yi = 1; yi <= maxHeight; yi++) {
     ycoord = 'y'+yi;
     if(obj.classList.contains(ycoord) == true) {
       var currentYcoord = ycoord;
-      //console.log(ycoord);
       //yiのiの数字部分を取り出して数値に変換
       var num = ycoord.match(/[0-9]+/);
       var ynum = parseInt(num, 10);
-      //console.log(num);
-      //console.log(ynum);
 
       for (let plus_i = 1; plus_i <= 7; plus_i++) {
         let sum = ynum + plus_i;
-        //console.log(sum);
         eval("yplus" + plus_i + "=" + sum + ";");
         eval("yplus" + plus_i + "Coord = 'y' + " + sum + ";");
       }
@@ -134,19 +113,6 @@ function reverseStone(obj) {
 
     }
   }
-  //yiをもちblack-stoneもつ要素を配列で取得
-  // console.log(ycoord);
-  // console.log(currentYcoord);
-  // let result = document.getElementsByClassName('black-stone '+ycoord);
-  // console.log(result);
-  // result = Array.from(result);
-  // console.log(result);
-  // result.forEach((yresult) => {
-  //   console.log(yresult);
-  //   console.log(xcoord);
-  //   isNoGapHorizon(yresult,xcoord, ycoord);
-  // });
-
   //yiをもちblack-stoneもつ要素を配列で取得
   console.log(currentYcoord);
   let result = document.getElementsByClassName('black-stone '+currentYcoord);
@@ -170,47 +136,6 @@ function reverseStone(obj) {
     isNoGapVertical(xresult,ycoord,currentXcoord)
   });
 
-  //xiをもちblack-stoneもつ要素を配列で取得
-  // result = '';
-  // result = document.getElementsByClassName('black-stone '+xplus1Coord + ' ' + yplus1Coord);
-  // console.log(result);
-  // result = Array.from(result);
-  // console.log(result);
-  // if (result != '') {
-  //   console.log("success(x+1,y+1)");
-  // }else{
-  //   console.log("none");
-  // }
-  // result = '';
-  // result = document.getElementsByClassName('black-stone '+xplus2Coord + ' ' + yplus2Coord);
-  // console.log(result);
-  // result = Array.from(result);
-  // console.log(result);
-  // if (result != '') {
-  //   console.log("success(x+2,y+2)");
-
-  //   let diagonal1 = document.getElementsByClassName(xplus1Coord + ' ' + yplus1Coord);
-  //       console.log(diagonal1);
-  //       let diagonal1ClassList;
-  //       diagonal1 = Array.from(diagonal1);
-  //       console.log(diagonal1);
-  //       diagonal1.forEach((diagonal) => {
-  //         diagonal1ClassList = diagonal.classList;
-  //       });
-  //       console.log(diagonal1ClassList);
-
-  //       isNoGapResultArray.length = 0;
-  //       console.log(isNoGapResultArray);
-  //       console.log(diagonal1ClassList.contains('white-stone'));
-  //       isNoGapResultArray.push(diagonal1ClassList.contains('white-stone'));
-  //       console.log(isNoGapResultArray);
-  //       console.log(isNoGapResultArray.every(item => item == true));
-  //       if (isNoGapResultArray.every(item => item == true)){
-  //         forTopRightReverse(2);
-  //       }
-  // }else{
-  //   console.log("none");
-  // }
   var diagonal1ClassList;
   var diagonal2ClassList;
   var diagonal3ClassList;
@@ -246,7 +171,6 @@ function reverseStone(obj) {
     console.log(result);
     if (result != '') {
       console.log("success(x+2,y+2)");
-      //let diagonal2;
       console.log(diagonal3ClassList)
       console.log(diagonal2ClassList)
 
@@ -257,8 +181,6 @@ function reverseStone(obj) {
         eval("console.log(diagonal" + i + "ClassList.contains('white-stone'))");
         eval("isNoGapResultArray.push(diagonal" + i + "ClassList.contains('white-stone'));");
       }
-      // console.log(diagonal1ClassList.contains('white-stone'));
-      // isNoGapResultArray.push(diagonal1ClassList.contains('white-stone'));
       console.log(isNoGapResultArray);
       console.log(isNoGapResultArray.every(item => item == true));
       if (isNoGapResultArray.every(item => item == true)){
@@ -268,57 +190,11 @@ function reverseStone(obj) {
     console.log("none");
     }
   }
-
-
-    // var reverseObject;
-    // console.log(eval("'white-stone '+xplus" + reverse_i + "Coord + ' ' + yplus" + reverse_i + "Coord"));
-    // eval("reverseObject = document.getElementsByClassName('white-stone '+xplus" + reverse_i + "Coord + ' ' + yplus" + reverse_i + "Coord);");
-    // reverseObject = Array.from(reverseObject);
-    // console.log(reverseObject);
-    // reverseObject.forEach((obj) => {
-    //   console.log(obj.classList);
-    //   obj.classList.remove('white-stone');
-    //   obj.classList.add('black-stone');
-    // });
-
-
-  // result = '';
-  // result = document.getElementsByClassName('black-stone '+xplus2Coord + ' ' + yplus2Coord);
-  // console.log(result);
-  // result = Array.from(result);
-  // console.log(result);
-  // if (result != '') {
-  //   console.log("success(x+2,y+2)");
-
-  //   let diagonal1 = document.getElementsByClassName(xplus1Coord + ' ' + yplus1Coord);
-  //       console.log(diagonal1);
-  //       let diagonal1ClassList;
-  //       diagonal1 = Array.from(diagonal1);
-  //       console.log(diagonal1);
-  //       diagonal1.forEach((diagonal) => {
-  //         diagonal1ClassList = diagonal.classList;
-  //       });
-  //       console.log(diagonal1ClassList);
-
-  //       isNoGapResultArray.length = 0;
-  //       console.log(isNoGapResultArray);
-  //       console.log(diagonal1ClassList.contains('white-stone'));
-  //       isNoGapResultArray.push(diagonal1ClassList.contains('white-stone'));
-  //       console.log(isNoGapResultArray);
-  //       console.log(isNoGapResultArray.every(item => item == true));
-  //       if (isNoGapResultArray.every(item => item == true)){
-  //         forTopRightReverse(2);
-  //       }
-  // }else{
-  //   console.log("none");
-  // }
 }
 
 function forRightReverse(count) {
   for(let reverse_i = 1; reverse_i < count; reverse_i++) {
     var reverseObject;
-    // console.log(xplus2Coord);
-    // console.log(eval("'white-stone '+xplus" + reverse_i + "Coord"));
     eval("reverseObject = document.getElementsByClassName('white-stone '+xplus" + reverse_i + "Coord);");
     reverseObject = Array.from(reverseObject);
     console.log(reverseObject);
@@ -346,7 +222,7 @@ function forLeftReverse(count){
 }
 
 function forTopRightReverse(count){
-  console.log('ここからマイナス');
+  console.log('右斜め上');
   for(let reverse_i = 1; reverse_i < count; reverse_i++) {
     var reverseObject;
     console.log(eval("'white-stone '+xplus" + reverse_i + "Coord + ' ' + yplus" + reverse_i + "Coord"));
@@ -365,8 +241,6 @@ function forTopRightReverse(count){
 function forTopReverse(count) {
   for(let reverse_i = 1; reverse_i < count; reverse_i++) {
     var reverseObject;
-    // console.log(yplus2Coord);
-    // console.log(eval("'white-stone '+yplus" + reverse_i + "Coord"));
     eval("reverseObject = document.getElementsByClassName('white-stone '+yplus" + reverse_i + "Coord);");
     reverseObject = Array.from(reverseObject);
     console.log(reverseObject);
@@ -378,7 +252,7 @@ function forTopReverse(count) {
   }
 }
 function forBottomReverse(count){
-    console.log('右上斜め');
+    console.log('下');
     for(let reverse_i = 1; reverse_i < count; reverse_i++) {
       var reverseObject;
     console.log(eval("'white-stone '+yminus" + reverse_i + "Coord"));
@@ -444,18 +318,10 @@ function isNoGapHorizon(yresult,xcoord,ycoord) {
         isNoGapResultArray.push(right1ClassList.contains('white-stone'));
         isNoGapResultArray.push(right2ClassList.contains('white-stone'));
         console.log(isNoGapResultArray);
-        // let right1Result = right1ClassList.contains('white-stone');
-        // let right2Result = right2ClassList.contains('white-stone');
-        // console.log(right1Result);
-        // console.log(right2Result);
         console.log(isNoGapResultArray.every(item => item == true));
         if (isNoGapResultArray.every(item => item == true)){
           forRightReverse(3);
-        }
-        // if (right1Result == true && right2Result == true) {
-          
-        // }
-        
+        }        
       }else if (nearYClassItem.includes(xplus4Coord)) {
         console.log('successx+4');
         let right1 = document.getElementsByClassName(ycoord + ' ' + xplus1Coord);
@@ -854,18 +720,10 @@ function isNoGapVertical(xresult,ycoord,xcoord) {
         isNoGapResultArray.push(right1ClassList.contains('white-stone'));
         isNoGapResultArray.push(right2ClassList.contains('white-stone'));
         console.log(isNoGapResultArray);
-        // let right1Result = right1ClassList.contains('white-stone');
-        // let right2Result = right2ClassList.contains('white-stone');
-        // console.log(right1Result);
-        // console.log(right2Result);
         console.log(isNoGapResultArray.every(item => item == true));
         if (isNoGapResultArray.every(item => item == true)){
           forTopReverse(3);
-        }
-        // if (right1Result == true && right2Result == true) {
-          
-        // }
-        
+        }        
       }else if (nearXClassItem.includes(yplus4Coord)) {
         console.log('successy+4');
         let right1 = document.getElementsByClassName(xcoord + ' ' + yplus1Coord);
