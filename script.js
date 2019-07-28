@@ -1,6 +1,15 @@
 
 let maxWidth = 8;
 let maxHeight = 8;
+var enemyStone = 'black-stone';
+var myStone = 'white-stone';
+
+changeButton.addEventListener('click', () => {
+  let currentMy = myStone;
+  let currentEnemy = enemyStone;
+  myStone = currentEnemy;
+  enemyStone = currentMy;
+});
 
 const rectangleObject = document.getElementsByClassName('rectangle');
 
@@ -11,12 +20,12 @@ for (let i = 0; i < rectangleObject.length; i++) {
   }, false);
 }
 function putBlackStone(obj) {
-  if (obj.classList.contains('white-stone') == true) {
+  if (obj.classList.contains(enemyStone) == true) {
     alert('そこにはすでに白石があります');
-  }else if (obj.classList.contains('black-stone') == true) {
+  }else if (obj.classList.contains(myStone) == true) {
     alert('そこにすでに黒石があります');
   }else {
-    obj.classList.add('black-stone');
+    obj.classList.add(myStone);
     reverseStone(obj);
   }
 }
@@ -115,7 +124,7 @@ function reverseStone(obj) {
   }
   //yiをもちblack-stoneもつ要素を配列で取得
   console.log(currentYcoord);
-  let result = document.getElementsByClassName('black-stone '+currentYcoord);
+  let result = document.getElementsByClassName(myStone + ' ' +currentYcoord);
   console.log(result);
   result = Array.from(result);
   console.log(result);
@@ -127,7 +136,7 @@ function reverseStone(obj) {
 
   //xiをもちblack-stoneもつ要素を配列で取得
   result = '';
-  result = document.getElementsByClassName('black-stone '+currentXcoord);
+  result = document.getElementsByClassName(myStone + ' '+currentXcoord);
   result = Array.from(result);
   console.log(result);
   result.forEach((xresult) => {
@@ -147,8 +156,8 @@ function reverseStone(obj) {
   // 置いた石の右上の石を挟む時
   for(let reverse_i = 1; reverse_i <= 7; reverse_i++) {
     result = '';
-    console.log(eval("'black-stone '+xplus" + reverse_i + "Coord + ' ' + yplus" + reverse_i + "Coord"));
-    eval("result = document.getElementsByClassName('black-stone '+xplus" + reverse_i + "Coord + ' ' + yplus" + reverse_i + "Coord);");
+    console.log(eval("myStone + ' ' + xplus" + reverse_i + "Coord + ' ' + yplus" + reverse_i + "Coord"));
+    eval("result = document.getElementsByClassName(myStone + ' ' + xplus" + reverse_i + "Coord + ' ' + yplus" + reverse_i + "Coord);");
     let diagonal1 = document.getElementsByClassName(xplus1Coord + ' ' + yplus1Coord);
     console.log(xplus1Coord + ' ' + yplus1Coord);
     diagonal1 = Array.from(diagonal1);
@@ -180,13 +189,14 @@ function reverseStone(obj) {
       console.log(isNoGapResultArray);
       for (let i = 1; i < reverse_i; i++) {
         console.log(i);
-        eval("console.log(diagonal" + i + "ClassList.contains('white-stone'))");
-        eval("isNoGapResultArray.push(diagonal" + i + "ClassList.contains('white-stone'));");
+        eval("console.log(diagonal" + i + "ClassList.contains(enemyStone))");
+        eval("isNoGapResultArray.push(diagonal" + i + "ClassList.contains(enemyStone));");
       }
       console.log(isNoGapResultArray);
       console.log(isNoGapResultArray.every(item => item == true));
       if (isNoGapResultArray.every(item => item == true)){
         forTopRightReverse(reverse_i);
+        return;
       }
     }else{
     console.log("none");
@@ -196,8 +206,8 @@ function reverseStone(obj) {
   // 置いた石の右下の石を挟む時 x+,y-
   for(let reverse_i = 1; reverse_i <= 7; reverse_i++) {
     result = '';
-    console.log(eval("'black-stone '+xplus" + reverse_i + "Coord + ' ' + yminus" + reverse_i + "Coord"));
-    eval("result = document.getElementsByClassName('black-stone '+xplus" + reverse_i + "Coord + ' ' + yminus" + reverse_i + "Coord);");
+    console.log(eval("myStone + ' ' + xplus" + reverse_i + "Coord + ' ' + yminus" + reverse_i + "Coord"));
+    eval("result = document.getElementsByClassName(myStone + ' '+xplus" + reverse_i + "Coord + ' ' + yminus" + reverse_i + "Coord);");
     let diagonal1 = document.getElementsByClassName(xplus1Coord + ' ' + yminus1Coord);
     console.log(xplus1Coord + ' ' + yminus1Coord);
     diagonal1 = Array.from(diagonal1);
@@ -229,13 +239,14 @@ function reverseStone(obj) {
       console.log(isNoGapResultArray);
       for (let i = 1; i < reverse_i; i++) {
         console.log(i);
-        eval("console.log(diagonal" + i + "ClassList.contains('white-stone'))");
-        eval("isNoGapResultArray.push(diagonal" + i + "ClassList.contains('white-stone'));");
+        eval("console.log(diagonal" + i + "ClassList.contains(enemyStone))");
+        eval("isNoGapResultArray.push(diagonal" + i + "ClassList.contains(enemyStone));");
       }
       console.log(isNoGapResultArray);
       console.log(isNoGapResultArray.every(item => item == true));
       if (isNoGapResultArray.every(item => item == true)){
         forBottomRightReverse(reverse_i);
+        return;
       }
     }else{
     console.log("none");
@@ -245,8 +256,8 @@ function reverseStone(obj) {
   // 置いた石の左上の石を挟む時 x- y+
   for(let reverse_i = 1; reverse_i <= 7; reverse_i++) {
     result = '';
-    console.log(eval("'black-stone '+xminus" + reverse_i + "Coord + ' ' + yplus" + reverse_i + "Coord"));
-    eval("result = document.getElementsByClassName('black-stone '+xminus" + reverse_i + "Coord + ' ' + yplus" + reverse_i + "Coord);");
+    console.log(eval("myStone + ' ' + xminus" + reverse_i + "Coord + ' ' + yplus" + reverse_i + "Coord"));
+    eval("result = document.getElementsByClassName(myStone + ' '+xminus" + reverse_i + "Coord + ' ' + yplus" + reverse_i + "Coord);");
     let diagonal1 = document.getElementsByClassName(xminus1Coord + ' ' + yplus1Coord);
     console.log(xminus1Coord + ' ' + yplus1Coord);
     diagonal1 = Array.from(diagonal1);
@@ -278,13 +289,14 @@ function reverseStone(obj) {
       console.log(isNoGapResultArray);
       for (let i = 1; i < reverse_i; i++) {
         console.log(i);
-        eval("console.log(diagonal" + i + "ClassList.contains('white-stone'))");
-        eval("isNoGapResultArray.push(diagonal" + i + "ClassList.contains('white-stone'));");
+        eval("console.log(diagonal" + i + "ClassList.contains(enemyStone))");
+        eval("isNoGapResultArray.push(diagonal" + i + "ClassList.contains(enemyStone));");
       }
       console.log(isNoGapResultArray);
       console.log(isNoGapResultArray.every(item => item == true));
       if (isNoGapResultArray.every(item => item == true)){
         forTopLeftReverse(reverse_i);
+        return;
       }
     }else{
     console.log("none");
@@ -294,8 +306,8 @@ function reverseStone(obj) {
   // 置いた石の左下の石を挟む時 x-,y-
   for(let reverse_i = 1; reverse_i <= 7; reverse_i++) {
     result = '';
-    console.log(eval("'black-stone '+xminus" + reverse_i + "Coord + ' ' + yminus" + reverse_i + "Coord"));
-    eval("result = document.getElementsByClassName('black-stone '+xminus" + reverse_i + "Coord + ' ' + yminus" + reverse_i + "Coord);");
+    console.log(eval("myStone + ' '+xminus" + reverse_i + "Coord + ' ' + yminus" + reverse_i + "Coord"));
+    eval("result = document.getElementsByClassName(myStone + ' '+xminus" + reverse_i + "Coord + ' ' + yminus" + reverse_i + "Coord);");
     let diagonal1 = document.getElementsByClassName(xminus1Coord + ' ' + yminus1Coord);
     console.log(xminus1Coord + ' ' + yminus1Coord);
     diagonal1 = Array.from(diagonal1);
@@ -327,13 +339,14 @@ function reverseStone(obj) {
       console.log(isNoGapResultArray);
       for (let i = 1; i < reverse_i; i++) {
         console.log(i);
-        eval("console.log(diagonal" + i + "ClassList.contains('white-stone'))");
-        eval("isNoGapResultArray.push(diagonal" + i + "ClassList.contains('white-stone'));");
+        eval("console.log(diagonal" + i + "ClassList.contains(enemyStone))");
+        eval("isNoGapResultArray.push(diagonal" + i + "ClassList.contains(enemyStone));");
       }
       console.log(isNoGapResultArray);
       console.log(isNoGapResultArray.every(item => item == true));
       if (isNoGapResultArray.every(item => item == true)){
         forBottomLeftReverse(reverse_i);
+        return;
       }
     }else{
     console.log("none");
@@ -344,13 +357,13 @@ function reverseStone(obj) {
 function forRightReverse(count) {
   for(let reverse_i = 1; reverse_i < count; reverse_i++) {
     var reverseObject;
-    eval("reverseObject = document.getElementsByClassName('white-stone '+xplus" + reverse_i + "Coord);");
+    eval("reverseObject = document.getElementsByClassName(enemyStone + ' '+xplus" + reverse_i + "Coord);");
     reverseObject = Array.from(reverseObject);
     console.log(reverseObject);
     reverseObject.forEach((obj) => {
       console.log(obj.classList);
-      obj.classList.remove('white-stone');
-      obj.classList.add('black-stone');
+      obj.classList.remove(enemyStone);
+      obj.classList.add(myStone);
     });
   }
 }
@@ -358,14 +371,14 @@ function forLeftReverse(count){
     console.log('ここからマイナス');
     for(let reverse_i = 1; reverse_i < count; reverse_i++) {
       var reverseObject;
-    console.log(eval("'white-stone '+xminus" + reverse_i + "Coord"));
-    eval("reverseObject = document.getElementsByClassName('white-stone '+xminus" + reverse_i + "Coord);");
+    console.log(eval("enemyStone + ' '+xminus" + reverse_i + "Coord"));
+    eval("reverseObject = document.getElementsByClassName(enemyStone + ' '+xminus" + reverse_i + "Coord);");
     reverseObject = Array.from(reverseObject);
     console.log(reverseObject);
     reverseObject.forEach((obj) => {
       console.log(obj.classList);
-      obj.classList.remove('white-stone');
-      obj.classList.add('black-stone');
+      obj.classList.remove(enemyStone);
+      obj.classList.add(myStone);
     });
   }
 }
@@ -374,14 +387,14 @@ function forTopRightReverse(count){
   console.log('右斜め上x+y+');
   for(let reverse_i = 1; reverse_i < count; reverse_i++) {
     var reverseObject;
-    console.log(eval("'white-stone '+xplus" + reverse_i + "Coord + ' ' + yplus" + reverse_i + "Coord"));
-    eval("reverseObject = document.getElementsByClassName('white-stone '+xplus" + reverse_i + "Coord + ' ' + yplus" + reverse_i + "Coord);");
+    console.log(eval("enemyStone + ' '+xplus" + reverse_i + "Coord + ' ' + yplus" + reverse_i + "Coord"));
+    eval("reverseObject = document.getElementsByClassName(enemyStone + ' '+xplus" + reverse_i + "Coord + ' ' + yplus" + reverse_i + "Coord);");
     reverseObject = Array.from(reverseObject);
     console.log(reverseObject);
     reverseObject.forEach((obj) => {
       console.log(obj.classList);
-      obj.classList.remove('white-stone');
-      obj.classList.add('black-stone');
+      obj.classList.remove(enemyStone);
+      obj.classList.add(myStone);
     });
   }
 }
@@ -389,14 +402,14 @@ function forBottomRightReverse(count){
   console.log('右斜め下x+,y-');
   for(let reverse_i = 1; reverse_i < count; reverse_i++) {
     var reverseObject;
-    console.log(eval("'white-stone '+xplus" + reverse_i + "Coord + ' ' + yminus" + reverse_i + "Coord"));
-    eval("reverseObject = document.getElementsByClassName('white-stone '+xplus" + reverse_i + "Coord + ' ' + yminus" + reverse_i + "Coord);");
+    console.log(eval("enemyStone + ' '+xplus" + reverse_i + "Coord + ' ' + yminus" + reverse_i + "Coord"));
+    eval("reverseObject = document.getElementsByClassName(enemyStone + ' '+xplus" + reverse_i + "Coord + ' ' + yminus" + reverse_i + "Coord);");
     reverseObject = Array.from(reverseObject);
     console.log(reverseObject);
     reverseObject.forEach((obj) => {
       console.log(obj.classList);
-      obj.classList.remove('white-stone');
-      obj.classList.add('black-stone');
+      obj.classList.remove(enemyStone);
+      obj.classList.add(myStone);
     });
   }
 }
@@ -405,14 +418,14 @@ function forTopLeftReverse(count){
   console.log('左斜め上x-.y+');
   for(let reverse_i = 1; reverse_i < count; reverse_i++) {
     var reverseObject;
-    console.log(eval("'white-stone '+xminus" + reverse_i + "Coord + ' ' + yplus" + reverse_i + "Coord"));
-    eval("reverseObject = document.getElementsByClassName('white-stone '+xminus" + reverse_i + "Coord + ' ' + yplus" + reverse_i + "Coord);");
+    console.log(eval("enemyStone + ' '+xminus" + reverse_i + "Coord + ' ' + yplus" + reverse_i + "Coord"));
+    eval("reverseObject = document.getElementsByClassName(enemyStone + ' '+xminus" + reverse_i + "Coord + ' ' + yplus" + reverse_i + "Coord);");
     reverseObject = Array.from(reverseObject);
     console.log(reverseObject);
     reverseObject.forEach((obj) => {
       console.log(obj.classList);
-      obj.classList.remove('white-stone');
-      obj.classList.add('black-stone');
+      obj.classList.remove(enemyStone);
+      obj.classList.add(myStone);
     });
   }
 }
@@ -421,14 +434,14 @@ function forBottomLeftReverse(count){
   console.log('左斜め下x-.y-');
   for(let reverse_i = 1; reverse_i < count; reverse_i++) {
     var reverseObject;
-    console.log(eval("'white-stone '+xminus" + reverse_i + "Coord + ' ' + yminus" + reverse_i + "Coord"));
-    eval("reverseObject = document.getElementsByClassName('white-stone '+xminus" + reverse_i + "Coord + ' ' + yminus" + reverse_i + "Coord);");
+    console.log(eval("enemyStone + ' '+xminus" + reverse_i + "Coord + ' ' + yminus" + reverse_i + "Coord"));
+    eval("reverseObject = document.getElementsByClassName(enemyStone + ' '+xminus" + reverse_i + "Coord + ' ' + yminus" + reverse_i + "Coord);");
     reverseObject = Array.from(reverseObject);
     console.log(reverseObject);
     reverseObject.forEach((obj) => {
       console.log(obj.classList);
-      obj.classList.remove('white-stone');
-      obj.classList.add('black-stone');
+      obj.classList.remove(enemyStone);
+      obj.classList.add(myStone);
     });
   }
 }
@@ -437,13 +450,13 @@ function forBottomLeftReverse(count){
 function forTopReverse(count) {
   for(let reverse_i = 1; reverse_i < count; reverse_i++) {
     var reverseObject;
-    eval("reverseObject = document.getElementsByClassName('white-stone '+yplus" + reverse_i + "Coord);");
+    eval("reverseObject = document.getElementsByClassName(enemyStone + ' '+yplus" + reverse_i + "Coord);");
     reverseObject = Array.from(reverseObject);
     console.log(reverseObject);
     reverseObject.forEach((obj) => {
       console.log(obj.classList);
-      obj.classList.remove('white-stone');
-      obj.classList.add('black-stone');
+      obj.classList.remove(enemyStone);
+      obj.classList.add(myStone);
     });
   }
 }
@@ -451,14 +464,14 @@ function forBottomReverse(count){
     console.log('下');
     for(let reverse_i = 1; reverse_i < count; reverse_i++) {
       var reverseObject;
-    console.log(eval("'white-stone '+yminus" + reverse_i + "Coord"));
-    eval("reverseObject = document.getElementsByClassName('white-stone '+yminus" + reverse_i + "Coord);");
+    console.log(eval("enemyStone + ' '+yminus" + reverse_i + "Coord"));
+    eval("reverseObject = document.getElementsByClassName(enemyStone + ' '+yminus" + reverse_i + "Coord);");
     reverseObject = Array.from(reverseObject);
     console.log(reverseObject);
     reverseObject.forEach((obj) => {
       console.log(obj.classList);
-      obj.classList.remove('white-stone');
-      obj.classList.add('black-stone');
+      obj.classList.remove(enemyStone);
+      obj.classList.add(myStone);
     });
   }
 }
@@ -490,7 +503,7 @@ function isNoGapHorizon(yresult,xcoord,ycoord) {
         });
 
         isNoGapResultArray.length = 0;
-        isNoGapResultArray.push(right1ClassList.contains('white-stone'));
+        isNoGapResultArray.push(right1ClassList.contains(enemyStone));
         console.log(isNoGapResultArray);
         console.log(isNoGapResultArray.every(item => item == true));
         if (isNoGapResultArray.every(item => item == true)){
@@ -511,8 +524,8 @@ function isNoGapHorizon(yresult,xcoord,ycoord) {
           right2ClassList = right.classList;
         });
         isNoGapResultArray.length = 0;
-        isNoGapResultArray.push(right1ClassList.contains('white-stone'));
-        isNoGapResultArray.push(right2ClassList.contains('white-stone'));
+        isNoGapResultArray.push(right1ClassList.contains(enemyStone));
+        isNoGapResultArray.push(right2ClassList.contains(enemyStone));
         console.log(isNoGapResultArray);
         console.log(isNoGapResultArray.every(item => item == true));
         if (isNoGapResultArray.every(item => item == true)){
@@ -540,9 +553,9 @@ function isNoGapHorizon(yresult,xcoord,ycoord) {
         });
 
         isNoGapResultArray.length = 0;
-        isNoGapResultArray.push(right1ClassList.contains('white-stone'));
-        isNoGapResultArray.push(right2ClassList.contains('white-stone'));
-        isNoGapResultArray.push(right3ClassList.contains('white-stone'));
+        isNoGapResultArray.push(right1ClassList.contains(enemyStone));
+        isNoGapResultArray.push(right2ClassList.contains(enemyStone));
+        isNoGapResultArray.push(right3ClassList.contains(enemyStone));
         if (isNoGapResultArray.every(item => item == true)){
           forRightReverse(4);
         }
@@ -574,10 +587,10 @@ function isNoGapHorizon(yresult,xcoord,ycoord) {
         });
 
         isNoGapResultArray.length = 0;
-        isNoGapResultArray.push(right1ClassList.contains('white-stone'));
-        isNoGapResultArray.push(right2ClassList.contains('white-stone'));
-        isNoGapResultArray.push(right3ClassList.contains('white-stone'));
-        isNoGapResultArray.push(right4ClassList.contains('white-stone'));
+        isNoGapResultArray.push(right1ClassList.contains(enemyStone));
+        isNoGapResultArray.push(right2ClassList.contains(enemyStone));
+        isNoGapResultArray.push(right3ClassList.contains(enemyStone));
+        isNoGapResultArray.push(right4ClassList.contains(enemyStone));
         if (isNoGapResultArray.every(item => item == true)){
           forRightReverse(5);
         }
@@ -616,11 +629,11 @@ function isNoGapHorizon(yresult,xcoord,ycoord) {
         });
 
         isNoGapResultArray.length = 0;
-        isNoGapResultArray.push(right1ClassList.contains('white-stone'));
-        isNoGapResultArray.push(right2ClassList.contains('white-stone'));
-        isNoGapResultArray.push(right3ClassList.contains('white-stone'));
-        isNoGapResultArray.push(right4ClassList.contains('white-stone'));
-        isNoGapResultArray.push(right5ClassList.contains('white-stone'));
+        isNoGapResultArray.push(right1ClassList.contains(enemyStone));
+        isNoGapResultArray.push(right2ClassList.contains(enemyStone));
+        isNoGapResultArray.push(right3ClassList.contains(enemyStone));
+        isNoGapResultArray.push(right4ClassList.contains(enemyStone));
+        isNoGapResultArray.push(right5ClassList.contains(enemyStone));
         if (isNoGapResultArray.every(item => item == true)){
           forRightReverse(6);
         }
@@ -663,12 +676,12 @@ function isNoGapHorizon(yresult,xcoord,ycoord) {
           right6ClassList = right.classList;
         });
         isNoGapResultArray.length = 0;
-        isNoGapResultArray.push(right1ClassList.contains('white-stone'));
-        isNoGapResultArray.push(right2ClassList.contains('white-stone'));
-        isNoGapResultArray.push(right3ClassList.contains('white-stone'));
-        isNoGapResultArray.push(right4ClassList.contains('white-stone'));
-        isNoGapResultArray.push(right5ClassList.contains('white-stone'));
-        isNoGapResultArray.push(right6ClassList.contains('white-stone'));
+        isNoGapResultArray.push(right1ClassList.contains(enemyStone));
+        isNoGapResultArray.push(right2ClassList.contains(enemyStone));
+        isNoGapResultArray.push(right3ClassList.contains(enemyStone));
+        isNoGapResultArray.push(right4ClassList.contains(enemyStone));
+        isNoGapResultArray.push(right5ClassList.contains(enemyStone));
+        isNoGapResultArray.push(right6ClassList.contains(enemyStone));
         if (isNoGapResultArray.every(item => item == true)){
           forRightReverse(7);
         }
@@ -686,7 +699,7 @@ function isNoGapHorizon(yresult,xcoord,ycoord) {
           left1ClassList = left.classList;
         });
         isNoGapResultArray.length = 0;
-        isNoGapResultArray.push(left1ClassList.contains('white-stone'));
+        isNoGapResultArray.push(left1ClassList.contains(enemyStone));
         if (isNoGapResultArray.every(item => item == true)){
           forLeftReverse(2);
         }
@@ -705,8 +718,8 @@ function isNoGapHorizon(yresult,xcoord,ycoord) {
           left2ClassList = left.classList;
         });
         isNoGapResultArray.length = 0;
-        isNoGapResultArray.push(left1ClassList.contains('white-stone'));
-        isNoGapResultArray.push(left2ClassList.contains('white-stone'));
+        isNoGapResultArray.push(left1ClassList.contains(enemyStone));
+        isNoGapResultArray.push(left2ClassList.contains(enemyStone));
         if (isNoGapResultArray.every(item => item == true)){
           forLeftReverse(3);
         }
@@ -731,9 +744,9 @@ function isNoGapHorizon(yresult,xcoord,ycoord) {
           left3ClassList = left.classList;
         });
         isNoGapResultArray.length = 0;
-        isNoGapResultArray.push(left1ClassList.contains('white-stone'));
-        isNoGapResultArray.push(left2ClassList.contains('white-stone'));
-        isNoGapResultArray.push(left3ClassList.contains('white-stone'));
+        isNoGapResultArray.push(left1ClassList.contains(enemyStone));
+        isNoGapResultArray.push(left2ClassList.contains(enemyStone));
+        isNoGapResultArray.push(left3ClassList.contains(enemyStone));
         if (isNoGapResultArray.every(item => item == true)){
           forLeftReverse(4);
         }
@@ -764,10 +777,10 @@ function isNoGapHorizon(yresult,xcoord,ycoord) {
           left4ClassList = left.classList;
         });
         isNoGapResultArray.length = 0;
-        isNoGapResultArray.push(left1ClassList.contains('white-stone'));
-        isNoGapResultArray.push(left2ClassList.contains('white-stone'));
-        isNoGapResultArray.push(left3ClassList.contains('white-stone'));
-        isNoGapResultArray.push(left4ClassList.contains('white-stone'));
+        isNoGapResultArray.push(left1ClassList.contains(enemyStone));
+        isNoGapResultArray.push(left2ClassList.contains(enemyStone));
+        isNoGapResultArray.push(left3ClassList.contains(enemyStone));
+        isNoGapResultArray.push(left4ClassList.contains(enemyStone));
         if (isNoGapResultArray.every(item => item == true)){
           forLeftReverse(5);
         }
@@ -804,11 +817,11 @@ function isNoGapHorizon(yresult,xcoord,ycoord) {
           left5ClassList = left.classList;
         });
         isNoGapResultArray.length = 0;
-        isNoGapResultArray.push(left1ClassList.contains('white-stone'));
-        isNoGapResultArray.push(left2ClassList.contains('white-stone'));
-        isNoGapResultArray.push(left3ClassList.contains('white-stone'));
-        isNoGapResultArray.push(left4ClassList.contains('white-stone'));
-        isNoGapResultArray.push(left5ClassList.contains('white-stone'));
+        isNoGapResultArray.push(left1ClassList.contains(enemyStone));
+        isNoGapResultArray.push(left2ClassList.contains(enemyStone));
+        isNoGapResultArray.push(left3ClassList.contains(enemyStone));
+        isNoGapResultArray.push(left4ClassList.contains(enemyStone));
+        isNoGapResultArray.push(left5ClassList.contains(enemyStone));
         if (isNoGapResultArray.every(item => item == true)){
           forLeftReverse(6);
         }
@@ -851,12 +864,12 @@ function isNoGapHorizon(yresult,xcoord,ycoord) {
           left6ClassList = left.classList;
         });
         isNoGapResultArray.length = 0;
-        isNoGapResultArray.push(left1ClassList.contains('white-stone'));
-        isNoGapResultArray.push(left2ClassList.contains('white-stone'));
-        isNoGapResultArray.push(left3ClassList.contains('white-stone'));
-        isNoGapResultArray.push(left4ClassList.contains('white-stone'));
-        isNoGapResultArray.push(left5ClassList.contains('white-stone'));
-        isNoGapResultArray.push(left6ClassList.contains('white-stone'));
+        isNoGapResultArray.push(left1ClassList.contains(enemyStone));
+        isNoGapResultArray.push(left2ClassList.contains(enemyStone));
+        isNoGapResultArray.push(left3ClassList.contains(enemyStone));
+        isNoGapResultArray.push(left4ClassList.contains(enemyStone));
+        isNoGapResultArray.push(left5ClassList.contains(enemyStone));
+        isNoGapResultArray.push(left6ClassList.contains(enemyStone));
         if (isNoGapResultArray.every(item => item == true)){
           forLeftReverse(7);
         }
@@ -892,7 +905,7 @@ function isNoGapVertical(xresult,ycoord,xcoord) {
         });
 
         isNoGapResultArray.length = 0;
-        isNoGapResultArray.push(right1ClassList.contains('white-stone'));
+        isNoGapResultArray.push(right1ClassList.contains(enemyStone));
         console.log(isNoGapResultArray);
         console.log(isNoGapResultArray.every(item => item == true));
         if (isNoGapResultArray.every(item => item == true)){
@@ -913,8 +926,8 @@ function isNoGapVertical(xresult,ycoord,xcoord) {
           right2ClassList = right.classList;
         });
         isNoGapResultArray.length = 0;
-        isNoGapResultArray.push(right1ClassList.contains('white-stone'));
-        isNoGapResultArray.push(right2ClassList.contains('white-stone'));
+        isNoGapResultArray.push(right1ClassList.contains(enemyStone));
+        isNoGapResultArray.push(right2ClassList.contains(enemyStone));
         console.log(isNoGapResultArray);
         console.log(isNoGapResultArray.every(item => item == true));
         if (isNoGapResultArray.every(item => item == true)){
@@ -942,9 +955,9 @@ function isNoGapVertical(xresult,ycoord,xcoord) {
         });
 
         isNoGapResultArray.length = 0;
-        isNoGapResultArray.push(right1ClassList.contains('white-stone'));
-        isNoGapResultArray.push(right2ClassList.contains('white-stone'));
-        isNoGapResultArray.push(right3ClassList.contains('white-stone'));
+        isNoGapResultArray.push(right1ClassList.contains(enemyStone));
+        isNoGapResultArray.push(right2ClassList.contains(enemyStone));
+        isNoGapResultArray.push(right3ClassList.contains(enemyStone));
         if (isNoGapResultArray.every(item => item == true)){
           forTopReverse(4);
         }
@@ -976,10 +989,10 @@ function isNoGapVertical(xresult,ycoord,xcoord) {
         });
 
         isNoGapResultArray.length = 0;
-        isNoGapResultArray.push(right1ClassList.contains('white-stone'));
-        isNoGapResultArray.push(right2ClassList.contains('white-stone'));
-        isNoGapResultArray.push(right3ClassList.contains('white-stone'));
-        isNoGapResultArray.push(right4ClassList.contains('white-stone'));
+        isNoGapResultArray.push(right1ClassList.contains(enemyStone));
+        isNoGapResultArray.push(right2ClassList.contains(enemyStone));
+        isNoGapResultArray.push(right3ClassList.contains(enemyStone));
+        isNoGapResultArray.push(right4ClassList.contains(enemyStone));
         if (isNoGapResultArray.every(item => item == true)){
           forTopReverse(5);
         }
@@ -1018,11 +1031,11 @@ function isNoGapVertical(xresult,ycoord,xcoord) {
         });
 
         isNoGapResultArray.length = 0;
-        isNoGapResultArray.push(right1ClassList.contains('white-stone'));
-        isNoGapResultArray.push(right2ClassList.contains('white-stone'));
-        isNoGapResultArray.push(right3ClassList.contains('white-stone'));
-        isNoGapResultArray.push(right4ClassList.contains('white-stone'));
-        isNoGapResultArray.push(right5ClassList.contains('white-stone'));
+        isNoGapResultArray.push(right1ClassList.contains(enemyStone));
+        isNoGapResultArray.push(right2ClassList.contains(enemyStone));
+        isNoGapResultArray.push(right3ClassList.contains(enemyStone));
+        isNoGapResultArray.push(right4ClassList.contains(enemyStone));
+        isNoGapResultArray.push(right5ClassList.contains(enemyStone));
         if (isNoGapResultArray.every(item => item == true)){
           forTopReverse(6);
         }
@@ -1065,12 +1078,12 @@ function isNoGapVertical(xresult,ycoord,xcoord) {
           right6ClassList = right.classList;
         });
         isNoGapResultArray.length = 0;
-        isNoGapResultArray.push(right1ClassList.contains('white-stone'));
-        isNoGapResultArray.push(right2ClassList.contains('white-stone'));
-        isNoGapResultArray.push(right3ClassList.contains('white-stone'));
-        isNoGapResultArray.push(right4ClassList.contains('white-stone'));
-        isNoGapResultArray.push(right5ClassList.contains('white-stone'));
-        isNoGapResultArray.push(right6ClassList.contains('white-stone'));
+        isNoGapResultArray.push(right1ClassList.contains(enemyStone));
+        isNoGapResultArray.push(right2ClassList.contains(enemyStone));
+        isNoGapResultArray.push(right3ClassList.contains(enemyStone));
+        isNoGapResultArray.push(right4ClassList.contains(enemyStone));
+        isNoGapResultArray.push(right5ClassList.contains(enemyStone));
+        isNoGapResultArray.push(right6ClassList.contains(enemyStone));
         if (isNoGapResultArray.every(item => item == true)){
           forTopReverse(7);
         }
@@ -1088,7 +1101,7 @@ function isNoGapVertical(xresult,ycoord,xcoord) {
           left1ClassList = left.classList;
         });
         isNoGapResultArray.length = 0;
-        isNoGapResultArray.push(left1ClassList.contains('white-stone'));
+        isNoGapResultArray.push(left1ClassList.contains(enemyStone));
         if (isNoGapResultArray.every(item => item == true)){
           forBottomReverse(2);
         }
@@ -1107,8 +1120,8 @@ function isNoGapVertical(xresult,ycoord,xcoord) {
           left2ClassList = left.classList;
         });
         isNoGapResultArray.length = 0;
-        isNoGapResultArray.push(left1ClassList.contains('white-stone'));
-        isNoGapResultArray.push(left2ClassList.contains('white-stone'));
+        isNoGapResultArray.push(left1ClassList.contains(enemyStone));
+        isNoGapResultArray.push(left2ClassList.contains(enemyStone));
         if (isNoGapResultArray.every(item => item == true)){
           forBottomReverse(3);
         }
@@ -1133,9 +1146,9 @@ function isNoGapVertical(xresult,ycoord,xcoord) {
           left3ClassList = left.classList;
         });
         isNoGapResultArray.length = 0;
-        isNoGapResultArray.push(left1ClassList.contains('white-stone'));
-        isNoGapResultArray.push(left2ClassList.contains('white-stone'));
-        isNoGapResultArray.push(left3ClassList.contains('white-stone'));
+        isNoGapResultArray.push(left1ClassList.contains(enemyStone));
+        isNoGapResultArray.push(left2ClassList.contains(enemyStone));
+        isNoGapResultArray.push(left3ClassList.contains(enemyStone));
         if (isNoGapResultArray.every(item => item == true)){
           forBottomReverse(4);
         }
@@ -1166,10 +1179,10 @@ function isNoGapVertical(xresult,ycoord,xcoord) {
           left4ClassList = left.classList;
         });
         isNoGapResultArray.length = 0;
-        isNoGapResultArray.push(left1ClassList.contains('white-stone'));
-        isNoGapResultArray.push(left2ClassList.contains('white-stone'));
-        isNoGapResultArray.push(left3ClassList.contains('white-stone'));
-        isNoGapResultArray.push(left4ClassList.contains('white-stone'));
+        isNoGapResultArray.push(left1ClassList.contains(enemyStone));
+        isNoGapResultArray.push(left2ClassList.contains(enemyStone));
+        isNoGapResultArray.push(left3ClassList.contains(enemyStone));
+        isNoGapResultArray.push(left4ClassList.contains(enemyStone));
         if (isNoGapResultArray.every(item => item == true)){
           forBottomReverse(5);
         }
@@ -1206,11 +1219,11 @@ function isNoGapVertical(xresult,ycoord,xcoord) {
           left5ClassList = left.classList;
         });
         isNoGapResultArray.length = 0;
-        isNoGapResultArray.push(left1ClassList.contains('white-stone'));
-        isNoGapResultArray.push(left2ClassList.contains('white-stone'));
-        isNoGapResultArray.push(left3ClassList.contains('white-stone'));
-        isNoGapResultArray.push(left4ClassList.contains('white-stone'));
-        isNoGapResultArray.push(left5ClassList.contains('white-stone'));
+        isNoGapResultArray.push(left1ClassList.contains(enemyStone));
+        isNoGapResultArray.push(left2ClassList.contains(enemyStone));
+        isNoGapResultArray.push(left3ClassList.contains(enemyStone));
+        isNoGapResultArray.push(left4ClassList.contains(enemyStone));
+        isNoGapResultArray.push(left5ClassList.contains(enemyStone));
         if (isNoGapResultArray.every(item => item == true)){
           forBottomReverse(6);
         }
@@ -1253,12 +1266,12 @@ function isNoGapVertical(xresult,ycoord,xcoord) {
           left6ClassList = left.classList;
         });
         isNoGapResultArray.length = 0;
-        isNoGapResultArray.push(left1ClassList.contains('white-stone'));
-        isNoGapResultArray.push(left2ClassList.contains('white-stone'));
-        isNoGapResultArray.push(left3ClassList.contains('white-stone'));
-        isNoGapResultArray.push(left4ClassList.contains('white-stone'));
-        isNoGapResultArray.push(left5ClassList.contains('white-stone'));
-        isNoGapResultArray.push(left6ClassList.contains('white-stone'));
+        isNoGapResultArray.push(left1ClassList.contains(enemyStone));
+        isNoGapResultArray.push(left2ClassList.contains(enemyStone));
+        isNoGapResultArray.push(left3ClassList.contains(enemyStone));
+        isNoGapResultArray.push(left4ClassList.contains(enemyStone));
+        isNoGapResultArray.push(left5ClassList.contains(enemyStone));
+        isNoGapResultArray.push(left6ClassList.contains(enemyStone));
         if (isNoGapResultArray.every(item => item == true)){
           forBottomReverse(7);
         }
